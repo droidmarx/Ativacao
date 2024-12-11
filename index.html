@@ -1,125 +1,313 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Ativação Concluída</title>
-<style>
-  body {
-    font-family: Arial, sans-serif;
-  }
-  table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-bottom: 20px;
-    margin-left: auto;
-    margin-right: auto;
-  }
-  
-  @media (min-width: 401px) {
-    table {
-        max-width: 400px;
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+  <title>Venda de Canais de TV</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      background-color: #f8f9fa;
+      color: #333;
     }
+
+    header {
+      background: linear-gradient(to right, #25d366, #1db954);
+      color: white;
+      padding: 20px 0;
+      text-align: center;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 2rem;
+    }
+
+    header p {
+      margin: 5px 0 0;
+      font-size: 1.2rem;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    .section {
+      padding: 20px 0;
+    }
+
+    .section h2 {
+      text-align: center;
+      margin-bottom: 20px;
+      font-size: 1.8rem;
+      color: #333;
+    }
+
+    .cards {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+    }
+
+    .card {
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      padding: 20px;
+      width: 300px;
+    }
+
+    .card img {
+      max-width: 100%;
+      border-radius: 10px;
+    }
+
+    .card h3 {
+      margin: 15px 0;
+      font-size: 1.5rem;
+    }
+
+    .card p {
+      font-size: 1rem;
+      color: #555;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 10px 20px;
+      background-color: #25d366;
+      color: white;
+      text-decoration: none;
+      border-radius: 5px;
+      font-size: 1rem;
+      transition: background 0.3s;
+    }
+
+    .btn:hover {
+      background-color: #20b858;
+    }
+
+    footer {
+      background: #333;
+      color: white;
+      text-align: center;
+      padding: 10px 0;
+      margin-top: 20px;
+    }
+
+    footer p {
+      margin: 0;
+      font-size: 0.9rem;
+    }
+
+    footer a {
+      color: #25d366;
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+
+    /* Estilo para o botão de teste */
+    .test-btn {
+      display: inline-block;
+      padding: 10px 20px;
+      background-color: #ff6347;
+      color: white;
+      text-decoration: none;
+      border-radius: 5px;
+      font-size: 1rem;
+      margin-top: 30px;
+      text-align: center;
+      transition: background 0.3s;
+    }
+
+    .test-btn:hover {
+      background-color: #e5533b;
+    }
+
+    /* Estilo para a nova aba de aplicativos */
+    .app-info {
+      background-color: #f0f8ff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      margin-top: 40px;
+      text-align: center;
+    }
+
+    .app-info h3 {
+      font-size: 1.8rem;
+      color: #333;
+      margin-bottom: 15px;
+    }
+
+    .app-info p {
+      font-size: 1.2rem;
+      color: #555;
+      margin-bottom: 10px;
+    }
+
+    .app-info a {
+      font-size: 1rem;
+      color: #25d366;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+
+    .app-info a:hover {
+      color: #1db954;
+    }
+    
+    /* Estilos da seção de Suporte 24h */
+.support-section {
+  background: #1a1a1a; /* Fundo escuro */
+  color: white; /* Texto em branco */
+  padding: 50px 20px;
+  text-align: center;
+  border-radius: 10px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+  margin: 40px 0;
+  position: relative;
 }
-  
-  
-  th, td {
-    padding: 8px;
-    border-bottom: 1px solid #ddd;
-  }
-  th {
-    background-color: #f2f2f2;
-    text-align: left;
-  }
-  .obs {
-    margin-top: 20px;
-  }
-  
- .ATV {
-    text-align: center;
+
+.support-section .support-content {
+  max-width: 600px;
+  margin: 0 auto;
 }
 
+.support-section h2 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
 
+.support-section p {
+  font-size: 1.1rem;
+  margin-bottom: 20px;
+  line-height: 1.6;
+}
 
+.btn-support {
+  background: #00e676; /* Cor verde chamativa do botão */
+  color: #1a1a1a;
+  font-size: 1.2rem;
+  padding: 15px 30px;
+  text-decoration: none;
+  border-radius: 50px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+  transition: background 0.3s ease;
+}
 
-</style>
+.btn-support:hover {
+  background: #00c853; /* Efeito de hover, mudando a cor do botão */
+}
+  </style>
 </head>
 <body>
-  
-  
-  
-  <div class="ATV">
-    <h2>ATIVAÇÃO ✅</h2>
+  <header>
+    <h1>Canais de TV</h1>
+    <p>Assista seus canais favoritos por um preço incrível!</p>
+  </header>
+
+  <main>
+    <div class="container">
+      <!-- Benefícios -->
+      <section class="section" id="benefits" data-aos="fade-up">
+        <h2>Por que escolher nossos canais?</h2>
+        <div class="cards">
+          <div class="card" data-aos="zoom-in">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTJS-qHMw-7TOuh1cwjwLvdhjE4ok2aElUJDENQBGmYslWHyMlOnjjg8iUx&s=10" alt="Variedade">
+            <h3>Variedade de Canais</h3>
+            <p>Canais de esportes, filmes, séries, infantis e muito mais.</p>
+          </div>
+          <div class="card" data-aos="zoom-in" data-aos-delay="200">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQQ7rQcQAW3GKUZk3TLyPXlchE2mExPPlQuoSxurqAN15JqWpIsY1aPTsuz&s=10" alt="Qualidade">
+            <h3>Qualidade FHD & 4K</h3>
+            <p>Imagem em alta definição para uma experiência incrível.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Nova seção sobre os aplicativos LazerPlay e Xcloud -->
+      <section class="section app-info" data-aos="fade-up">
+        <h3>Aplicativos exclusivos e gratuitos para TV da LG e Samsung e outras</h3>
+        <p>Você pode utilizar os aplicativos LazerPlay ou Xcloud para acessar nossos canais diretamente na sua tv.</p>
+        <p><strong>Importante:</strong> Não é necessário adquirir licença desses aplicativos, basta baixar e usar com o nosso serviço !</p>
+
+        <!-- Container para as imagens -->
+        <div class="app-images" style="display: flex; justify-content: center; gap: 30px; margin-top: 20px;">
+
+          <!-- Imagem do LazerPlay -->
+          <div class="app-item" style="text-align: center;">
+            <img src="https://acdn.mitiendanube.com/stores/003/382/634/products/lazer_play-03348d582520692b9217120683124908-1024-1024.webp" alt="LazerPlay" style="width: 150px; height: auto; border-radius: 10px; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);">
+            <p>LazerPlay</p>
+          </div>
+
+          <!-- Imagem do Xcloud -->
+          <div class="app-item" style="text-align: center;">
+            <img src="https://images.sftcdn.net/images/t_app-icon-m/p/29cbf2a2-eebf-40e4-9ad9-4ba9aa6077bc/567195780/xcloudtv-logo" alt="Xcloud" style="width: 150px; height: auto; border-radius: 10px; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);">
+            <p>Xcloud</p>
+          </div>
+
+        </div>
+      </section>
+
+<!-- Planos -->
+<section class="section" id="plans" data-aos="fade-up">
+  <h2>Planos e Preços</h2>
+  <div class="cards">
+    <div class="card" data-aos="flip-left">
+      <h3>Básico 01 Tela</h3>
+      <p>A partir de R$30,00/mês</p>
+      <a href="https://wa.me/19993004628?text=Gostaria%20de%20saber%20mais%20sobre%20o%20plano%20Básico, 01 tela." class="btn">Escolher</a>
+    </div>
+    <div class="card" data-aos="flip-left" data-aos-delay="200">
+      <h3>Premium 02 Telas</h3>
+      <p>A partir de R$50,00/mês</p>
+      <a href="https://wa.me/19993004628?text=Gostaria%20de%20saber%20mais%20sobre%20o%20plano%20Premium, 02 telas." class="btn">Escolher</a>
+    </div>
+    <div class="card" data-aos="flip-left" data-aos-delay="400">
+      <h3>Ultimate 03 Telas</h3>
+      <p>A partir de R$80,00/mês</p>
+      <a href="https://wa.me/19993004628?text=Gostaria%20de%20saber%20mais%20sobre%20o%20plano%20Ultimate, 03 telas." class="btn">Escolher</a>
+    </div>
+
+    <!-- Card para os botões adicionais -->
+    <div class="card" data-aos="flip-left" data-aos-delay="600">
+      <h3>Recursos Adicionais</h3>
+      <a href="https://guiadeconteudo.blog/channel" target="_blank" class="test-btn">Confira nosso conteúdo</a>
+      <a href="https://testeagora.tv/testeplay" target="_blank" class="test-btn">Gerar Teste de 4 Horas</a>
+      <a href="https://clienteiptv.com/" target="_blank" class="test-btn">Painel do Cliente</a>
+    </div>
   </div>
-  
-<table>
-  <tr>
-    <th>Técnico:</th>
-    <td><input type="text"></td>
-  </tr>
-  <tr>
-    <th>Cliente:</th>
-    <td><input type="text"></td>
-  </tr>
-  <tr>
-    <th>RX POWER:</th>
-    <td><input type="text"></td>
-  </tr>
-  <tr>
-    <th>RANGE:</th>
-    <td><input type="text"></td>
-  </tr>
-  <tr>
-    <th>CTO:</th>
-    <td><input type="text"></td>
-  </tr>
-  <tr>
-    <th>PORTA:</th>
-    <td><input type="text"></td>
-  </tr>
-  <tr>
-    <th>PLANO:</th>
-    <td><input type="text"></td>
-  </tr>
-  <tr>
-    <th>Channel 2.4Ghz:</th>
-    <td><input type="text"></td>
-  </tr>
-  <tr>
-    <th>Frequencia 2.4Ghz:</th>
-    <td><input type="text"></td>
-  </tr>
-  <tr>
-    <th>Channel 5Ghz:</th>
-    <td><input type="text"></td>
-  </tr>
-  <tr>
-    <th>Frequencia 5Ghz:</th>
-    <td><input type="text"></td>
-  </tr>
-  <tr>
-    <th>LINHA TELEFÔNICA:</th>
-    <td><input type="text"></td>
-  </tr>
-  <tr>
-    <th>ONU / ONT:</th>
-    <td><input type="text"></td>
-  </tr>
-  <tr>
-    <th>ROTEADOR:</th>
-    <td><input type="text"></td>
-  </tr>
-  <tr>
-    <th>Box TV e ou RoKu:</th>
-    <td><input type="text"></td>
-  </tr>
-  <tr>
-    <th>Login TV:</th>
-    <td><input type="text"></td>
-  </tr>
-</table>
+</section>
 
+<!-- Suporte 24h -->
+<section class="support-section" id="support" data-aos="fade-up">
+  <div class="support-content">
+    <h2>Suporte 24h via WhatsApp</h2>
+    <p>Estamos disponíveis a qualquer hora do dia ou da noite! Se você precisar de ajuda, é só chamar no WhatsApp. Nosso time está pronto para te atender 24/7.</p>
+    <a href="https://wa.me/19993004628?text=Gostaria%20de%20falar%20com%20o%20suporte%2024h." class="btn-support">Falar com o Suporte</a>
+  </div>
+</section>
 
+  <footer>
+    <p>© 2024 Venda de Canais de TV. Todos os direitos reservados. <a href="https://www.example.com">Política de Privacidade</a></p>
+  </footer>
 
+  <script>
+    AOS.init();
+  </script>
 </body>
 </html>
