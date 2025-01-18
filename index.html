@@ -5,6 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" />
   <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
   <title>Venda de Canais de TV</title>
   <style>
       * {
@@ -20,7 +22,7 @@
       margin: 0;
       line-height: 1.6;
       background-color: #000000;
-      color: #393939;
+      color: #ACACAC;
     }
     
     h1{
@@ -60,7 +62,7 @@
       text-align: center;
       margin-bottom: 20px;
       font-size: 1.8rem;
-      color: #F28C00;
+      color: #A7A7A7;
     }
 
     .cards {
@@ -71,7 +73,8 @@
     }
 
     .card {
-      background: #949494;
+      background: #EDE2E22E;
+      border: solid whitesmoke 1px;
       border-radius: 10px;
       box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
       text-align: center;
@@ -91,7 +94,7 @@
 
     .card p {
       font-size: 1rem;
-      color: #555;
+      color: #A8A8A8;
     }
 
     .btn {
@@ -146,7 +149,7 @@
     }
 
     .test-btn:hover {
-      background-color: #19BA42;
+      background-color: #373B38;
     }
 
     /* Estilo para a nova aba de aplicativos */
@@ -258,10 +261,10 @@
     }
 
     #loader div {
-      width: 50px;
-      height: 50px;
-      border: 5px solid #fff;
-      border-top: 5px solid #F28C00;
+      width: 100px;
+      height: 100px;
+      border: 10px solid #fff;
+      border-top: 10px solid #F20000;
       border-radius: 50%;
       animation: spin 1s linear infinite;
     }
@@ -282,6 +285,15 @@
         font-size: 1.5rem;
       }
     }
+    
+    .video-card {
+  width: 100%; /* O vídeo se ajusta à largura do container */
+  height: auto; /* Mantém a proporção do vídeo */
+  border-radius: 10px; /* Adiciona bordas arredondadas, opcional */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Adiciona sombra ao vídeo */
+  object-fit: cover; /* Faz o vídeo preencher o espaço sem distorção */
+}
+
   </style>
 </head>
 <body>
@@ -302,7 +314,16 @@
         
         <div class="cards">
           <div class="card" data-aos="zoom-in">
-            <img src="/IMG-20250116-WA0015.jpg" alt="Variedade">
+     <video autoplay muted loop class="video-card">
+      <source src="/VID-20250111-WA0003.mp4" type="video/mp4">
+      Seu navegador não suporta o elemento de vídeo.
+    </video>
+    
+     <video autoplay muted loop class="video-card">
+      <source src="/Streaming.mp4" type="video/mp4">
+      Seu navegador não suporta o elemento de vídeo.
+    </video>
+            
 
           </div>
           <div class="card" data-aos="zoom-in" data-aos-delay="200">
@@ -321,17 +342,17 @@
 
         <!-- Container para as imagens -->
         <div class="app-images" style="display: flex; justify-content: space-between; gap: 30px; margin-top: 20px;">
+           
+            <!-- Imagem do Xcloud -->
+          <div class="app-item" style="text-align: center;">
+            <img src="https://images.sftcdn.net/images/t_app-icon-m/p/29cbf2a2-eebf-40e4-9ad9-4ba9aa6077bc/567195780/xcloudtv-logo" alt="Xcloud" style="width: 150px; height: auto; border-radius: 10px; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);">
+            <p>XcloudTV</p>
+          </div>         
 
           <!-- Imagem do LazerPlay -->
           <div class="app-item" style="text-align: center;">
             <img src="https://acdn.mitiendanube.com/stores/003/382/634/products/lazer_play-03348d582520692b9217120683124908-1024-1024.webp" alt="LazerPlay" style="width: 150px; height: auto; border-radius: 10px; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);">
             <p>LazerPlay</p>
-          </div>
-
-          <!-- Imagem do Xcloud -->
-          <div class="app-item" style="text-align: center;">
-            <img src="https://images.sftcdn.net/images/t_app-icon-m/p/29cbf2a2-eebf-40e4-9ad9-4ba9aa6077bc/567195780/xcloudtv-logo" alt="Xcloud" style="width: 150px; height: auto; border-radius: 10px; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);">
-            <p>Xcloud</p>
           </div>
           
           <!-- Imagem do QuickPlayer -->
@@ -360,7 +381,7 @@
 
 
         </div>
-        <a href="https://testeagora.tv/maistv" target="_blank" class="test-btn">Gerar Teste de 4 Horas</a>
+        <a href="https://testeagora.tv/maistv" target="_blank" class="test-btn">Já sei como utilizar<br>Gerar teste de 4 Horas</a>
 
       </section>
 
@@ -371,21 +392,21 @@
     <div class="card" data-aos="flip-left">
       <h3>Mensal</h3>
       <p>R$25,00</p>
-      <p>1 Tela<br>4K/FHD/HD/SD<br>Fimes/Séries/Ao vivo<br>Adultos(Opcional)</p>
+      <p>1 Tela<br>4K/FHD/HD/SD<br>Fimes/Séries/Ao vivo<br>Adultos(Opcional)</p><br>
       
       <a href="https://wa.me/5511915370708?text=Gostaria%20de%20saber%20mais%20sobre%20o%20plano%20Mensal, por R$25,00." class="btn">Escolher</a>
     </div>
     <div class="card" data-aos="flip-left" data-aos-delay="200">
       <h3>Trimestral</h3>
       <p>R$70,00</p>
-      <p>1 Tela<br>4K/FHD/HD/SD<br>Fimes/Séries/Ao vivo<br>Adultos(Opcional)</p>
+      <p>1 Tela<br>4K/FHD/HD/SD<br>Fimes/Séries/Ao vivo<br>Adultos(Opcional)</p><br>
 
       <a href="https://wa.me/5511915370708?text=Gostaria%20de%20saber%20mais%20sobre%20o%20plano%20Trimestral, por R$70,00." class="btn">Escolher</a>
     </div>
     <div class="card" data-aos="flip-left" data-aos-delay="400">
       <h3>Semestral</h3>
       <p>R$140,00</p>
-      <p>1 Tela<br>4K/FHD/HD/SD<br>Fimes/Séries/Ao vivo<br>Adultos(Opcional)</p>
+      <p>1 Tela<br>4K/FHD/HD/SD<br>Fimes/Séries/Ao vivo<br>Adultos(Opcional)</p><br>
 
       
       <a href="https://wa.me/5511915370708?text=Gostaria%20de%20saber%20mais%20sobre%20o%20plano%20Semestral, por R$140,00." class="btn">Escolher</a>
@@ -393,7 +414,7 @@
     <div class="card" data-aos="flip-left" data-aos-delay="400">
       <h3>Anual</h3>
       <p>R$280,00</p>
-      <p>2 Tela<br>4K/FHD/HD/SD<br>Fimes/Séries/Ao vivo<br>Adultos(Opcional)</p>
+      <p>2 Tela<br>4K/FHD/HD/SD<br>Fimes/Séries/Ao vivo<br>Adultos(Opcional)</p><br>
 
       
       <a href="https://wa.me/5511915370708?text=Gostaria%20de%20saber%20mais%20sobre%20o%20plano%20Anual, por R$280,00." class="btn">Escolher</a>
