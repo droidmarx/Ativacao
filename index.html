@@ -171,7 +171,7 @@
     }
 
     .app-info p {
-      font-size: 1.2rem;
+      font-size: 1rem;
       color: #555555;
       margin-bottom: 10px;
     }
@@ -296,6 +296,25 @@
   object-fit: cover; /* Faz o vídeo preencher o espaço sem distorção */
 }
 
+/* Estilo para telas de celular */
+.app-images {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  margin-top: 10px;
+}
+
+/* Estilo para telas de PC (largura maior que 768px, por exemplo) */
+@media (min-width: 768px) {
+  .app-images {
+    display: flex;
+    justify-content: space-between;
+    gap: 30px;
+    margin-top: 20px;
+  }
+}
+
+
   </style>
 </head>
 <body>
@@ -305,7 +324,7 @@
   </div>
 
   <header>
-  <img class="img" src="/IMG-20241212-WA0008.jpg" alt="Logo da Empresa">
+  <img data-aos="zoom-out" data-aos-delay="400"  class="img" src="/IMG-20241212-WA0008.jpg" alt="Logo da Empresa">
   <h1>Assista seus canais favoritos por um preço incrível!</h1>
 </header>
 
@@ -316,10 +335,12 @@
         
         <div class="cards">
           <div class="card" data-aos="zoom-in">
-     <video data-aos="zoom-in" data-aos-delay="200" autoplay muted loop class="video-card">
+     <video data-aos="zoom-in" data-aos-delay="400" autoplay muted loop class="video-card">
       <source src="/VID-20250111-WA0003.mp4" type="video/mp4">
       Seu navegador não suporta o elemento de vídeo.
     </video>
+    
+    <br><br>
     
      <video data-aos="zoom-in" data-aos-delay="50" autoplay muted loop class="video-card">
       <source src="/Streaming.mp4" type="video/mp4">
@@ -343,47 +364,47 @@
   <p><strong>Nota Importante:</strong> Não se preocupe em adquirir licenças separadas! Ao ativar nosso serviço, a licença necessária já está inclusa. Basta baixar o aplicativo e começar a usar imediatamente.</p>
 
         <!-- Container para as imagens -->
-        <div class="app-images" style="display: flex; justify-content: space-between; gap: 30px; margin-top: 20px;">
+        <div class="app-images">
            
             <!-- Imagem do Xcloud -->
-          <div data-aos="zoom-in" data-aos-delay="200" class="app-item" style="text-align: center;">
-            <img src="https://images.sftcdn.net/images/t_app-icon-m/p/29cbf2a2-eebf-40e4-9ad9-4ba9aa6077bc/567195780/xcloudtv-logo" alt="Xcloud" style="width: 150px; height: auto; border-radius: 10px; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);">
+          <div data-aos="fade-right" data-aos-delay="200" class="app-item" style="text-align: center;">
+         <img src="https://images.sftcdn.net/images/t_app-icon-m/p/29cbf2a2-eebf-40e4-9ad9-4ba9aa6077bc/567195780/xcloudtv-logo" alt="Xcloud" style="width: 80px; height: auto; border-radius: 10px; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);">
             <p>XcloudTV</p>
           </div>         
 
           <!-- Imagem do LazerPlay -->
           <div data-aos="zoom-in" data-aos-delay="200" class="app-item" style="text-align: center;">
-            <img src="https://acdn.mitiendanube.com/stores/003/382/634/products/lazer_play-03348d582520692b9217120683124908-1024-1024.webp" alt="LazerPlay" style="width: 150px; height: auto; border-radius: 10px; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);">
+            <img src="https://acdn.mitiendanube.com/stores/003/382/634/products/lazer_play-03348d582520692b9217120683124908-1024-1024.webp" alt="LazerPlay" style="width: 80px; height: auto; border-radius: 10px; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);">
             <p>LazerPlay</p>
           </div>
           
           <!-- Imagem do QuickPlayer -->
-          <div data-aos="zoom-in" data-aos-delay="200" class="app-item" style="text-align: center;">
-            <img src="/Screenshot_20250117_191550_Google Play Store.png" alt="QuickPlayer" style="width: 150px; height: auto; border-radius: 10px; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);">
+          <div data-aos="fade-left" data-aos-delay="200" class="app-item" style="text-align: center;">
+            <img src="/Screenshot_20250117_191550_Google Play Store.png" alt="QuickPlayer" style="width: 80px; height: auto; border-radius: 10px; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);">
             <p>QuickPlayer</p>
           </div>   
           
           <!-- Imagem do MetaPlayer -->
-          <div data-aos="zoom-in" data-aos-delay="200" class="app-item" style="text-align: center;">
-            <img src="/meta-player-2adf758b5a594f3cae17341077932155-1024-1024.png" alt="MetaPlayer" style="width: 150px; height: auto; border-radius: 10px; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);">
+          <div data-aos="fade-up-right" data-aos-delay="200" class="app-item" style="text-align: center;">
+            <img src="/meta-player-2adf758b5a594f3cae17341077932155-1024-1024.png" alt="MetaPlayer" style="width: 80px; height: auto; border-radius: 10px; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);">
             <p>MetaPlayer</p>
           </div>
           
              <!-- Imagem do VuPlayer -->
           <div data-aos="zoom-in" data-aos-delay="200" class="app-item" style="text-align: center;">
-            <img src="/Screenshot_20250117_192319_Google Play Store.png" alt="VuPlayer" style="width: 150px; height: auto; border-radius: 10px; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);">
+            <img src="/Screenshot_20250117_192319_Google Play Store.png" alt="VuPlayer" style="width: 80px; height: auto; border-radius: 10px; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);">
             <p>VuPlayer</p>
           </div>  
           
                <!-- Imagem do IboPro -->
-          <div data-aos="zoom-in" data-aos-delay="200" class="app-item" style="text-align: center;">
-            <img src="/1200x600wa.png" alt="IboPro" style="width: 150px; height: auto; border-radius: 10px; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);">
+          <div data-aos="fade-up-left" data-aos-delay="200" class="app-item" style="text-align: center;">
+            <img src="/1200x600wa.png" alt="IboPro" style="width: 80px; height: auto; border-radius: 10px; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);">
             <p>IboPro</p>
           </div>               
 
 
         </div>
-        <a href="https://wa.me/5511915370708?text=Já%20instalei%20o%20aplicativo%2C%20por%20favor%20gere%20um%20teste%20para%20mim" target="_blank" class="test-btn">Já instalei<br>Gerar teste de 4 Horas</a>
+        <a data-aos="fade-up" data-aos-delay="300" href="https://wa.me/5511915370708?text=Já%20instalei%20o%20aplicativo%2C%20por%20favor%20gere%20um%20teste%20para%20mim" target="_blank" class="test-btn">Já instalei<br>Gerar teste de 4 Horas</a>
 
       </section>
 
