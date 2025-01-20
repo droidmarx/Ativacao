@@ -306,7 +306,11 @@
 
 @media (max-width: 480px) {
 	.app-images {
-		cursor: none;
+		display: grid;
+grid-template-columns: repeat(3, 1fr);
+gap: 20px;
+margin-top: 10px;
+cursor: none;
 		overflow: hidden;
 	}
 }
@@ -314,11 +318,12 @@
 /* Estilo para telas de PC (largura maior que 768px, por exemplo) */
 @media (min-width: 768px) {
   .app-images {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 30px;
-    margin-top: 20px;
+    display: grid;
+grid-template-columns: repeat(3, 1fr);
+gap: 20px;
+margin-top: 10px;
+cursor: none;
+		overflow: hidden;
   }
 }
 
