@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Painel de Cliente</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'primary': '#1E40AF',
+                        'secondary': '#3B82F6',
+                        'accent': '#DBEAFE'
+                    },
+                    animation: {
+                        'float': 'float 2s ease-in-out infinite'
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-8px)' }
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-gray-50 min-h-screen flex items-center justify-center p-4">
+    <div class="bg-white p-8 rounded-xl shadow-2xl w-full max-w-lg transition-all duration-300">
+        <h1 class="text-3xl font-bold mb-6 text-center text-primary">Painel de Cliente</h1>
+        <div class="mb-6">
+            <label for="whatsapp" class="block text-sm font-medium text-gray-700 mb-2">Número de WhatsApp</label>
+            <input type="text" id="whatsapp" placeholder="Ex.: +55 19 99999-9999 ou 19 99999-9999" class="p-3 w-full border rounded-lg focus:outline-none focus:ring-2 focus:ring-secondary transition duration-200">
+        </div>
+        <button onclick="buscarCliente()" class="w-full bg-secondary text-white p-3 rounded-lg hover:bg-primary transition duration-200">Buscar</button>
+        <div id="clientInfo" class="mt-6 hidden">
+            <h2 class="text-xl font-semibold text-gray-800 mb-4">Informações do Cliente</h2>
+            <div class="space-y-3">
+                <p><strong class="text-gray-600">Nome:</strong> <span id="clientName" class="text-gray-800"></span></p>
+                <p><strong class="text-gray-600">Valor Mensal:</strong> <span id="clientValor" class="text-gray-800"></span></p>
+                <p><strong class="text-gray-600">Tela(s):</strong> <span id="clientTela" class="text-gray-800"></span></p>
+                <p><strong class="text-gray-600">Vencimento:</strong> <span id="clientVencimento" class="text-gray-800"></span></p>
+                <div class="mt-4">
+                    <label for="meses" class="block text-sm font-medium text-gray-700 mb-2">Quantidade de Meses</label>
+                    <select id="meses" onchange="atualizarValorTotal()" class="p-3 w-full border rounded-lg focus:outline-none focus:ring-2 focus:ring-secondary transition duration-200">
+                        <option value="1">1 mês</option>
+                        <option value="2">2 meses</option>
+                        <option value="3">3 meses</option>
+                        <option value="4">4 meses</option>
+                        <option value="5">5 meses</option>
+                        <option value="6">6 meses</option>
+                        <option value="7">7 meses</option>
+                        <option value="8">8 meses</option>
+                        <option value="9">9 meses</option>
+                        <option value="10">10 meses</option>
+                        <option value="11">11 meses</option>
+                        <option value="12">12 meses</option>
+                    </select>
+                </div>
+                <p><strong class="text-gray-600">Valor Total:</strong> <span id="valorTotal" class="text-gray-800">Selecione a quantidade de meses</span></p>
+            </div>
+            <button id="pixButton" onclick="gerarCodigoPix()" class="mt-4 w-full bg-green-500 text-white p-3 rounded-lg hover:bg-green-600 transition duration-200 hidden">Gerar Código PIX</button>
+        </div>
+        <div id="errorMessage" class="mt-6 text-red-500 hidden text-center font-medium"></div>
+    </div>
+
+    <!-- Modal de Loading -->
+    <div id="loadingModal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden">
+        <div class="bg-white p-10 rounded-2xl shadow-2xl max-w-md w-full text-center">
+            <div class="relative mx-auto w-24 h-24">
+                <div class="absolute inset-0 rounded-full border-4 border-red-500 border-t-transparent animate-spin"></div>
+                <img src="https://ativacao-blue.vercel.app/IMG-20241212-WA0008.jpg" alt="Loading Image" class="absolute inset-4 w-16 h-16 object-contain animate-float">
+            </div>
+            <p class="mt-4 text-gray-600 font-medium transition-opacity duration-500">Gerando Código PIX...</p>
+        </div>
+    </div>
+
+    <!-- Modal para mensagem de sucesso -->
+    <div id="successModal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden">
+        <div class="bg-white p-6 rounded-lg shadow-xl max-w-sm w-full text-center">
+            <p id="successMessage" class="text-green-600 font-medium mb-4"></p>
+            <button onclick="fecharModal()" class="bg-secondary text-white px-4 py-2 rounded-lg hover:bg-primary transition duration-200">Fechar</button>
+        </div>
+    </div>
+
+    <!-- Modal para imagem aumentada -->
+    <div id="imageModal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-60 hidden">
+        <div class="p-4">
+            <img src="https://ativacao-blue.vercel.app/IMG-20241212-WA0008.jpg" alt="Success Image" class="w-16 h-16 object-contain transform scale-150 animate-float">
+        </div>
+    </div>
+
+    <!-- Modal de Atalhos para Bancos -->
+    <div id="bankShortcutsModal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-70 hidden">
+        <div class="bg-white p-6 rounded-lg shadow-xl max-w-md w-full">
+            <h3 class="text-lg font-semibold text-center mb-4 text-primary">Selecione seu Banco</h3>
+            <div class="grid grid-cols-1 gap-3">
+                <button onclick="abrirAppBanco('nubank')" class="bg-purple-600 text-white p-3 rounded-lg hover:bg-purple-700 transition duration-200">Nubank (PIX)</button>
+                <button onclick="abrirAppBanco('itau')" class="bg-blue-600 text-white p-3 rounded-lg hover:bg-blue-700 transition duration-200">Itaú (PIX)</button>
+                <button onclick="abrirAppBanco('bradesco')" class="bg-orange-500 text-white p-3 rounded-lg hover:bg-orange-600 transition duration-200">Bradesco (PIX)</button>
+                <button onclick="abrirAppBanco('caixa')" class="bg-green-600 text-white p-3 rounded-lg hover:bg-green-700 transition duration-200">Caixa Econômica (PIX)</button>
+                <button onclick="abrirAppBanco('bb')" class="bg-yellow-600 text-white p-3 rounded-lg hover:bg-yellow-700 transition duration-200">Banco do Brasil (PIX)</button>
+                <button onclick="abrirAppBanco('outro')" class="bg-gray-500 text-white p-3 rounded-lg hover:bg-gray-600 transition duration-200">Outro Banco</button>
+            </div>
+            <button onclick="fecharShortcutsModal()" class="mt-4 w-full bg-gray-500 text-white p-2 rounded-lg hover:bg-gray-600 transition duration-200">Fechar</button>
+        </div>
+    </div>
+
+    <script>
+        let currentClientData = {};
+
+        function fecharModal() {
+            document.getElementById('successModal').classList.add('hidden');
+            document.getElementById('imageModal').classList.add('hidden');
+            // Exibir modal de atalhos após 500ms
+            setTimeout(() => {
+                document.getElementById('bankShortcutsModal').classList.remove('hidden');
+            }, 500);
+        }
+
+        function fecharShortcutsModal() {
+            document.getElementById('bankShortcutsModal').classList.add('hidden');
+        }
+
+        function abrirAppBanco(banco) {
+            const isAndroid = /Android/i.test(navigator.userAgent);
+            const isIOS = /iPhone|iPad|iPod/i.test(navigator.userAgent);
+            let url = '';
+
+            switch (banco) {
+                case 'nubank':
+                    if (isAndroid) url = 'intent://pix#Intent;scheme=nubank;package=com.nu.production;end';
+                    else if (isIOS) url = 'nubank://pix';
+                    else url = 'https://nubank.com.br/'; // Fallback
+                    break;
+                case 'itau':
+                    if (isAndroid) url = 'intent://pix#Intent;scheme=itau;package=br.com.itau.android2;end';
+                    else if (isIOS) url = 'itau://pix';
+                    else url = 'https://www.itau.com.br/';
+                    break;
+                case 'bradesco':
+                    if (isAndroid) url = 'intent://pix#Intent;scheme=bradesco;package=com.bradesco;end';
+                    else if (isIOS) url = 'bradesco://pix';
+                    else url = 'https://banco.bradesco/';
+                    break;
+                case 'caixa':
+                    if (isAndroid) url = 'intent://pix#Intent;scheme=caixa;package=br.gov.caixa.aplicativocaixa;end';
+                    else if (isIOS) url = 'caixa://pix';
+                    else url = 'https://www.caixa.gov.br/';
+                    break;
+                case 'bb':
+                    if (isAndroid) url = 'intent://pix#Intent;scheme=bb;package=br.com.bb.android;end';
+                    else if (isIOS) url = 'bb://pix';
+                    else url = 'https://www.bb.com.br/';
+                    break;
+                case 'outro':
+                    url = 'https://www.bcb.gov.br/estabilidadefinanceira/pix';
+                    break;
+                default:
+                    url = 'https://www.bcb.gov.br/estabilidadefinanceira/pix';
+            }
+
+            // Timeout para fallback se o app não abrir
+            const startTime = Date.now();
+            window.location.href = url;
+            setTimeout(() => {
+                if (Date.now() - startTime < 2000) {
+                    // App não abriu, fallback para site
+                    window.location.href = url.replace('intent://', 'https://').replace(/:\/\/pix/, '/pix');
+                }
+            }, 2000);
+        }
+
+        function atualizarValorTotal() {
+            const meses = parseInt(document.getElementById('meses').value);
+            const valorTotalElement = document.getElementById('valorTotal');
+            if (!currentClientData.valor || currentClientData.valor === 'N/A') {
+                valorTotalElement.textContent = 'Valor indisponível';
+                return;
+            }
+            const valorMensal = parseFloat(currentClientData.valor.replace('R$', '').replace(',', '.'));
+            if (isNaN(valorMensal) || valorMensal <= 0) {
+                valorTotalElement.textContent = 'Valor indisponível';
+                return;
+            }
+            const valorTotal = valorMensal * meses;
+            valorTotalElement.textContent = `R$${valorTotal.toFixed(2).replace('.', ',')}`;
+        }
+
+        async function gerarCodigoPix() {
+            const loadingModal = document.getElementById('loadingModal');
+            const successModal = document.getElementById('successModal');
+            const imageModal = document.getElementById('imageModal');
+            const successMessage = document.getElementById('successMessage');
+            const errorMessage = document.getElementById('errorMessage');
+            const meses = parseInt(document.getElementById('meses').value);
+
+            // Mostrar loading
+            loadingModal.classList.remove('hidden');
+            errorMessage.classList.add('hidden');
+
+            try {
+                if (!currentClientData.valor || currentClientData.valor === 'N/A') {
+                    throw new Error('Valor não disponível para este cliente.');
+                }
+
+                const valorMensal = parseFloat(currentClientData.valor.replace('R$', '').replace(',', '.'));
+                if (isNaN(valorMensal) || valorMensal <= 0) {
+                    throw new Error('Valor mensal inválido para o PIX.');
+                }
+
+                const valorTotal = valorMensal * meses;
+
+                // Dados do PIX para Mercado Pago
+                const chavePix = '+5511915370708';
+                const nomeBeneficiario = 'NANA1408';
+                const cidade = 'Olmpia';
+                const txid = 'mpqrinter' + Date.now().toString().slice(-9);
+
+                const payload = `000201` +
+                    `2636${'0014br.gov.bcb.pix01' + chavePix.length.toString().padStart(2, '0') + chavePix}` +
+                    `52040000` +
+                    `5303986` +
+                    `54${valorTotal.toFixed(2).length.toString().padStart(2, '0')}${valorTotal.toFixed(2)}` +
+                    `5802BR` +
+                    `59${nomeBeneficiario.length.toString().padStart(2, '0')}${nomeBeneficiario}` +
+                    `60${cidade.length.toString().padStart(2, '0')}${cidade}` +
+                    `62${('05' + txid.length.toString().padStart(2, '0') + txid).length.toString().padStart(2, '0')}${('05' + txid.length.toString().padStart(2, '0') + txid)}` +
+                    `6304`;
+
+                // Calcular CRC16
+                const crc16 = (function(payloadStr) {
+                    let crc = 0xFFFF;
+                    for (let i = 0; i < payloadStr.length; i++) {
+                        crc ^= payloadStr.charCodeAt(i) << 8;
+                        for (let j = 0; j < 8; j++) {
+                            crc = (crc & 0x8000) ? (crc << 1) ^ 0x1021 : crc << 1;
+                            crc &= 0xFFFF;
+                        }
+                    }
+                    return crc.toString(16).toUpperCase().padStart(4, '0');
+                })(payload);
+
+                const finalPayload = payload + crc16;
+
+                // Garantir mínimo de 1 segundo para o loading
+                await new Promise(resolve => setTimeout(resolve, 1000));
+
+                // Copiar para a área de transferência
+                await navigator.clipboard.writeText(finalPayload);
+
+                // Ocultar loading e mostrar modais de sucesso e imagem
+                loadingModal.classList.add('hidden');
+                successMessage.innerHTML = `PIX gerado com sucesso! <br>Valor: <span class="font-semibold">R$${valorTotal.toFixed(2).replace('.', ',')}</span> para <span class="font-semibold">${meses} mês(es)</span>. <br>O código foi copiado para a área de transferência. <br>Abra o aplicativo do banco na área PIX, cole o código e envie o comprovante via WhatsApp para liberação manual.`;
+                successModal.classList.remove('hidden');
+                imageModal.classList.remove('hidden');
+                console.log('Payload PIX copiado:', finalPayload);
+
+            } catch (err) {
+                loadingModal.classList.add('hidden');
+                errorMessage.textContent = err.message || 'Erro ao gerar o código PIX.';
+                errorMessage.classList.remove('hidden');
+                successModal.classList.add('hidden');
+                imageModal.classList.add('hidden');
+                console.error('Erro:', err);
+            }
+        }
+
+        async function buscarCliente() {
+            const whatsappInput = document.getElementById('whatsapp').value.trim();
+            const clientInfo = document.getElementById('clientInfo');
+            const errorMessage = document.getElementById('errorMessage');
+            const pixButton = document.getElementById('pixButton');
+            const loadingModal = document.getElementById('loadingModal');
+            const successModal = document.getElementById('successModal');
+            const imageModal = document.getElementById('imageModal');
+            const bankShortcutsModal = document.getElementById('bankShortcutsModal');
+
+            const normalizedWhatsApp = whatsappInput.replace(/[\s\-\(\)+]/g, '');
+
+            if (!normalizedWhatsApp) {
+                errorMessage.textContent = 'Por favor, insira um número de WhatsApp.';
+                errorMessage.classList.remove('hidden');
+                clientInfo.classList.add('hidden');
+                return;
+            }
+
+            try {
+                const response = await fetch('https://66d39f5c184dce1713d09736.mockapi.io/Api/v1/clientes');
+                if (!response.ok) {
+                    throw new Error('Falha ao buscar dados da API.');
+                }
+                const clients = await response.json();
+
+                const client = clients.find(c => {
+                    const normalizedClientWhats = c.whats.replace(/[\s\-\(\)+]/g, '');
+                    return normalizedClientWhats === normalizedWhatsApp;
+                });
+
+                if (client) {
+                    currentClientData = {
+                        id: client.id,
+                        cliente: client.cliente,
+                        valor: client.valor ? `R$${parseFloat(client.valor).toFixed(2).replace('.', ',')}` : 'N/A',
+                        tela: client.tela || 'N/A',
+                        vencimento: client.vencimento ? new Date(client.vencimento).toLocaleDateString('pt-BR') : 'N/A'
+                    };
+                    document.getElementById('clientName').textContent = currentClientData.cliente;
+                    document.getElementById('clientValor').textContent = currentClientData.valor;
+                    document.getElementById('clientTela').textContent = currentClientData.tela;
+                    document.getElementById('clientVencimento').textContent = currentClientData.vencimento;
+                    clientInfo.classList.remove('hidden');
+                    errorMessage.classList.add('hidden');
+                    pixButton.classList.remove('hidden');
+                    loadingModal.classList.add('hidden');
+                    successModal.classList.add('hidden');
+                    imageModal.classList.add('hidden');
+                    bankShortcutsModal.classList.add('hidden');
+                    pixButton.disabled = false;
+                    atualizarValorTotal(); // Atualizar valor total ao carregar os dados do cliente
+                } else {
+                    errorMessage.textContent = 'Cliente não encontrado.';
+                    errorMessage.classList.remove('hidden');
+                    clientInfo.classList.add('hidden');
+                    pixButton.classList.add('hidden');
+                    loadingModal.classList.add('hidden');
+                    successModal.classList.add('hidden');
+                    imageModal.classList.add('hidden');
+                    bankShortcutsModal.classList.add('hidden');
+                }
+            } catch (error) {
+                errorMessage.textContent = 'Erro ao buscar dados do cliente: ' + error.message;
+                errorMessage.classList.remove('hidden');
+                clientInfo.classList.add('hidden');
+                pixButton.classList.add('hidden');
+                loadingModal.classList.add('hidden');
+                successModal.classList.add('hidden');
+                imageModal.classList.add('hidden');
+                bankShortcutsModal.classList.add('hidden');
+                console.error('Erro:', error);
+            }
+        }
+    </script>
+</body>
+</html>
