@@ -37,32 +37,68 @@
         </div>
         <button onclick="buscarCliente()" class="w-full bg-secondary text-white p-3 rounded-lg hover:bg-primary transition duration-200">Buscar</button>
         <div id="clientInfo" class="mt-6 hidden">
-            <h2 class="text-xl font-semibold text-gray-800 mb-4">Informações do Cliente</h2>
-            <div class="space-y-3">
-                <p><strong class="text-gray-600">Nome:</strong> <span id="clientName" class="text-gray-800"></span></p>
-                <p><strong class="text-gray-600">Valor Mensal:</strong> <span id="clientValor" class="text-gray-800"></span></p>
-                <p><strong class="text-gray-600">Tela(s):</strong> <span id="clientTela" class="text-gray-800"></span></p>
-                <p><strong class="text-gray-600">Vencimento:</strong> <span id="clientVencimento" class="text-gray-800"></span></p>
-                <div class="mt-4">
-                    <label for="meses" class="block text-sm font-medium text-gray-700 mb-2">Quantidade de Meses</label>
-                    <select id="meses" onchange="atualizarValorTotal()" class="p-3 w-full border rounded-lg focus:outline-none focus:ring-2 focus:ring-secondary transition duration-200">
-                        <option value="1">1 mês</option>
-                        <option value="2">2 meses</option>
-                        <option value="3">3 meses</option>
-                        <option value="4">4 meses</option>
-                        <option value="5">5 meses</option>
-                        <option value="6">6 meses</option>
-                        <option value="7">7 meses</option>
-                        <option value="8">8 meses</option>
-                        <option value="9">9 meses</option>
-                        <option value="10">10 meses</option>
-                        <option value="11">11 meses</option>
-                        <option value="12">12 meses</option>
-                    </select>
-                </div>
-                <p><strong class="text-gray-600">Valor Total:</strong> <span id="valorTotal" class="text-gray-800">Selecione a quantidade de meses</span></p>
+            <!-- Tabs -->
+            <div class="flex mb-4">
+                <button id="tabInfo" onclick="switchTab('info')" class="flex-1 py-2 px-4 text-center bg-secondary text-white rounded-l-lg hover:bg-primary transition duration-200">Informações</button>
+                <button id="tabPedido" onclick="switchTab('pedido')" class="flex-1 py-2 px-4 text-center bg-gray-200 text-gray-700 rounded-r-lg hover:bg-gray-300 transition duration-200">Pedido de Conteúdo</button>
             </div>
-            <button id="pixButton" onclick="gerarCodigoPix()" class="mt-4 w-full bg-green-500 text-white p-3 rounded-lg hover:bg-green-600 transition duration-200 hidden">Gerar Código PIX</button>
+
+            <!-- Tab Informações -->
+            <div id="tabContentInfo" class="tab-content">
+                <h2 class="text-xl font-semibold text-gray-800 mb-4">Informações do Cliente</h2>
+                <div class="space-y-3">
+                    <p><strong class="text-gray-600">Nome:</strong> <span id="clientName" class="text-gray-800"></span></p>
+                    <p><strong class="text-gray-600">Valor Mensal:</strong> <span id="clientValor" class="text-gray-800"></span></p>
+                    <p><strong class="text-gray-600">Tela(s):</strong> <span id="clientTela" class="text-gray-800"></span></p>
+                    <p><strong class="text-gray-600">Vencimento:</strong> <span id="clientVencimento" class="text-gray-800"></span></p>
+                    <div class="mt-4">
+                        <label for="meses" class="block text-sm font-medium text-gray-700 mb-2">Quantidade de Meses</label>
+                        <select id="meses" onchange="atualizarValorTotal()" class="p-3 w-full border rounded-lg focus:outline-none focus:ring-2 focus:ring-secondary transition duration-200">
+                            <option value="1">1 mês</option>
+                            <option value="2">2 meses</option>
+                            <option value="3">3 meses</option>
+                            <option value="4">4 meses</option>
+                            <option value="5">5 meses</option>
+                            <option value="6">6 meses</option>
+                            <option value="7">7 meses</option>
+                            <option value="8">8 meses</option>
+                            <option value="9">9 meses</option>
+                            <option value="10">10 meses</option>
+                            <option value="11">11 meses</option>
+                            <option value="12">12 meses</option>
+                        </select>
+                    </div>
+                    <p><strong class="text-gray-600">Valor Total:</strong> <span id="valorTotal" class="text-gray-800">Selecione a quantidade de meses</span></p>
+                </div>
+                <button id="pixButton" onclick="gerarCodigoPix()" class="mt-4 w-full bg-green-500 text-white p-3 rounded-lg hover:bg-green-600 transition duration-200 hidden">Gerar Código PIX</button>
+            </div>
+
+            <!-- Tab Pedido de Conteúdo -->
+            <div id="tabContentPedido" class="tab-content hidden">
+                <h2 class="text-xl font-semibold text-gray-800 mb-4">Pedido de Conteúdo</h2>
+                <!-- Busca TMDB -->
+                <div class="mb-4">
+                    <label for="termoBusca" class="block text-sm font-medium text-gray-700 mb-2">Buscar Filme/Série no TMDB</label>
+                    <div class="flex space-x-2">
+                        <input type="text" id="termoBusca" placeholder="Digite o nome do filme ou série" class="flex-1 p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-secondary transition duration-200">
+                        <button id="botaoAcao" onclick="buscarConteudoTMDB()" class="bg-blue-500 text-white px-4 py-3 rounded-lg hover:bg-blue-600 transition duration-200">Buscar</button>
+                    </div>
+                </div>
+                <!-- Resultados da Busca -->
+                <div id="resultadosBusca" class="mb-4 hidden">
+                    <h3 class="text-sm font-medium text-gray-700 mb-2">Resultados:</h3>
+                    <div id="listaResultados" class="space-y-2 max-h-48 overflow-y-auto"></div>
+                </div>
+                <!-- Input de Pedido -->
+                <div class="mb-4">
+                    <label for="conteudo" class="block text-sm font-medium text-gray-700 mb-2">Nome do Conteúdo (selecione da busca acima)</label>
+                    <input type="text" id="conteudo" placeholder="Selecione um conteúdo da busca" class="p-3 w-full border rounded-lg focus:outline-none focus:ring-2 focus:ring-secondary transition duration-200" readonly>
+                </div>
+                <div class="mt-6">
+                    <h3 class="text-lg font-semibold text-gray-800 mb-4">Histórico de Pedidos</h3>
+                    <div id="historicoPedidos" class="space-y-2"></div>
+                </div>
+            </div>
         </div>
         <div id="errorMessage" class="mt-6 text-red-500 hidden text-center font-medium"></div>
     </div>
@@ -93,85 +129,26 @@
         </div>
     </div>
 
-    <!-- Modal de Atalhos para Bancos -->
-    <div id="bankShortcutsModal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-70 hidden">
-        <div class="bg-white p-6 rounded-lg shadow-xl max-w-md w-full">
-            <h3 class="text-lg font-semibold text-center mb-4 text-primary">Selecione seu Banco</h3>
-            <div class="grid grid-cols-1 gap-3">
-                <button onclick="abrirAppBanco('nubank')" class="bg-purple-600 text-white p-3 rounded-lg hover:bg-purple-700 transition duration-200">Nubank (PIX)</button>
-                <button onclick="abrirAppBanco('itau')" class="bg-blue-600 text-white p-3 rounded-lg hover:bg-blue-700 transition duration-200">Itaú (PIX)</button>
-                <button onclick="abrirAppBanco('bradesco')" class="bg-orange-500 text-white p-3 rounded-lg hover:bg-orange-600 transition duration-200">Bradesco (PIX)</button>
-                <button onclick="abrirAppBanco('caixa')" class="bg-green-600 text-white p-3 rounded-lg hover:bg-green-700 transition duration-200">Caixa Econômica (PIX)</button>
-                <button onclick="abrirAppBanco('bb')" class="bg-yellow-600 text-white p-3 rounded-lg hover:bg-yellow-700 transition duration-200">Banco do Brasil (PIX)</button>
-                <button onclick="abrirAppBanco('outro')" class="bg-gray-500 text-white p-3 rounded-lg hover:bg-gray-600 transition duration-200">Outro Banco</button>
-            </div>
-            <button onclick="fecharShortcutsModal()" class="mt-4 w-full bg-gray-500 text-white p-2 rounded-lg hover:bg-gray-600 transition duration-200">Fechar</button>
-        </div>
-    </div>
-
     <script>
         let currentClientData = {};
+        const TMDB_API_KEY = 'a0830843cc828e9adb00d378f700e585';
+
+        function switchTab(tab) {
+            document.querySelectorAll('.tab-content').forEach(content => content.classList.add('hidden'));
+            document.querySelectorAll('[id^="tab"]').forEach(btn => btn.classList.remove('bg-secondary', 'text-white', 'bg-gray-200', 'text-gray-700'));
+            document.getElementById(`tabContent${tab.charAt(0).toUpperCase() + tab.slice(1)}`).classList.remove('hidden');
+            if (tab === 'info') {
+                document.getElementById('tabInfo').classList.add('bg-secondary', 'text-white');
+                document.getElementById('tabPedido').classList.add('bg-gray-200', 'text-gray-700');
+            } else {
+                document.getElementById('tabPedido').classList.add('bg-secondary', 'text-white');
+                document.getElementById('tabInfo').classList.add('bg-gray-200', 'text-gray-700');
+            }
+        }
 
         function fecharModal() {
             document.getElementById('successModal').classList.add('hidden');
             document.getElementById('imageModal').classList.add('hidden');
-            // Exibir modal de atalhos após 500ms
-            setTimeout(() => {
-                document.getElementById('bankShortcutsModal').classList.remove('hidden');
-            }, 500);
-        }
-
-        function fecharShortcutsModal() {
-            document.getElementById('bankShortcutsModal').classList.add('hidden');
-        }
-
-        function abrirAppBanco(banco) {
-            const isAndroid = /Android/i.test(navigator.userAgent);
-            const isIOS = /iPhone|iPad|iPod/i.test(navigator.userAgent);
-            let url = '';
-
-            switch (banco) {
-                case 'nubank':
-                    if (isAndroid) url = 'intent://pix#Intent;scheme=nubank;package=com.nu.production;end';
-                    else if (isIOS) url = 'nubank://pix';
-                    else url = 'https://nubank.com.br/'; // Fallback
-                    break;
-                case 'itau':
-                    if (isAndroid) url = 'intent://pix#Intent;scheme=itau;package=br.com.itau.android2;end';
-                    else if (isIOS) url = 'itau://pix';
-                    else url = 'https://www.itau.com.br/';
-                    break;
-                case 'bradesco':
-                    if (isAndroid) url = 'intent://pix#Intent;scheme=bradesco;package=com.bradesco;end';
-                    else if (isIOS) url = 'bradesco://pix';
-                    else url = 'https://banco.bradesco/';
-                    break;
-                case 'caixa':
-                    if (isAndroid) url = 'intent://pix#Intent;scheme=caixa;package=br.gov.caixa.aplicativocaixa;end';
-                    else if (isIOS) url = 'caixa://pix';
-                    else url = 'https://www.caixa.gov.br/';
-                    break;
-                case 'bb':
-                    if (isAndroid) url = 'intent://pix#Intent;scheme=bb;package=br.com.bb.android;end';
-                    else if (isIOS) url = 'bb://pix';
-                    else url = 'https://www.bb.com.br/';
-                    break;
-                case 'outro':
-                    url = 'https://www.bcb.gov.br/estabilidadefinanceira/pix';
-                    break;
-                default:
-                    url = 'https://www.bcb.gov.br/estabilidadefinanceira/pix';
-            }
-
-            // Timeout para fallback se o app não abrir
-            const startTime = Date.now();
-            window.location.href = url;
-            setTimeout(() => {
-                if (Date.now() - startTime < 2000) {
-                    // App não abriu, fallback para site
-                    window.location.href = url.replace('intent://', 'https://').replace(/:\/\/pix/, '/pix');
-                }
-            }, 2000);
         }
 
         function atualizarValorTotal() {
@@ -190,6 +167,205 @@
             valorTotalElement.textContent = `R$${valorTotal.toFixed(2).replace('.', ',')}`;
         }
 
+        async function buscarConteudoTMDB() {
+            const termo = document.getElementById('termoBusca').value.trim();
+            const resultadosElement = document.getElementById('resultadosBusca');
+            const listaResultados = document.getElementById('listaResultados');
+            const errorMessage = document.getElementById('errorMessage');
+
+            if (!termo) {
+                errorMessage.textContent = 'Por favor, digite um termo de busca.';
+                errorMessage.classList.remove('hidden');
+                return;
+            }
+
+            try {
+                const response = await fetch(`https://api.themoviedb.org/3/search/multi?api_key=${TMDB_API_KEY}&language=pt-BR&query=${encodeURIComponent(termo)}&page=1`);
+                if (!response.ok) {
+                    throw new Error('Falha na busca da TMDB.');
+                }
+                const data = await response.json();
+                const resultados = data.results.filter(item => item.media_type === 'movie' || item.media_type === 'tv');
+
+                if (resultados.length === 0) {
+                    listaResultados.innerHTML = '<p class="text-gray-500 text-sm">Nenhum resultado encontrado.</p>';
+                } else {
+                    let html = '';
+                    resultados.slice(0, 5).forEach(item => {
+                        const tipo = item.media_type === 'movie' ? 'Filme' : 'Série';
+                        const ano = item.release_date ? new Date(item.release_date).getFullYear() : (item.first_air_date ? new Date(item.first_air_date).getFullYear() : 'N/A');
+                        const poster = item.poster_path ? `https://image.tmdb.org/t/p/w200${item.poster_path}` : 'https://via.placeholder.com/100x150?text=Sem+Poster';
+                        const nomeCompleto = `${item.title || item.name} (${ano}) - ${tipo}`;
+                        html += `
+                            <div class="bg-gray-50 p-3 rounded-lg border flex space-x-3">
+                                <img src="${poster}" alt="${nomeCompleto}" class="w-16 h-24 object-cover rounded">
+                                <div class="flex-1">
+                                    <p class="font-medium">${item.title || item.name}</p>
+                                    <p class="text-sm text-gray-500">${ano} - ${tipo}</p>
+                                    <p class="text-sm text-gray-600 line-clamp-2">${item.overview || 'Sem descrição disponível.'}</p>
+                                </div>
+                                <button onclick="selecionarConteudo('${nomeCompleto}', '${item.id}', '${item.media_type}')" class="bg-green-500 text-white px-3 py-1 rounded text-sm hover:bg-green-600">Selecionar</button>
+                            </div>
+                        `;
+                    });
+                    listaResultados.innerHTML = html;
+                }
+                resultadosElement.classList.remove('hidden');
+                errorMessage.classList.add('hidden');
+            } catch (error) {
+                errorMessage.textContent = 'Erro na busca da TMDB: ' + error.message;
+                errorMessage.classList.remove('hidden');
+                console.error('Erro:', error);
+            }
+        }
+
+        function selecionarConteudo(nomeCompleto, tmdbId, mediaType) {
+            const conteudoInput = document.getElementById('conteudo');
+            const botaoAcao = document.getElementById('botaoAcao');
+            conteudoInput.value = nomeCompleto;
+            conteudoInput.dataset.tmdbId = tmdbId;
+            conteudoInput.dataset.mediaType = mediaType;
+            document.getElementById('resultadosBusca').classList.add('hidden');
+            botaoAcao.textContent = 'Enviar Pedido';
+            botaoAcao.onclick = enviarPedido;
+            botaoAcao.classList.remove('bg-blue-500', 'hover:bg-blue-600');
+            botaoAcao.classList.add('bg-green-500', 'hover:bg-green-600');
+        }
+
+        function resetarBotaoAcao() {
+            const botaoAcao = document.getElementById('botaoAcao');
+            botaoAcao.textContent = 'Buscar';
+            botaoAcao.onclick = buscarConteudoTMDB;
+            botaoAcao.classList.remove('bg-green-500', 'hover:bg-green-600');
+            botaoAcao.classList.add('bg-blue-500', 'hover:bg-blue-600');
+        }
+
+        async function enviarPedido() {
+            const conteudoInput = document.getElementById('conteudo');
+            const conteudo = conteudoInput.value.trim();
+            const tmdbId = conteudoInput.dataset.tmdbId;
+            const mediaType = conteudoInput.dataset.mediaType;
+            const errorMessage = document.getElementById('errorMessage');
+            if (!conteudo || !tmdbId || !mediaType) {
+                errorMessage.textContent = 'Por favor, selecione um conteúdo da busca TMDB.';
+                errorMessage.classList.remove('hidden');
+                return;
+            }
+            if (!currentClientData.id) {
+                errorMessage.textContent = 'Cliente não encontrado. Busque o cliente primeiro.';
+                errorMessage.classList.remove('hidden');
+                return;
+            }
+
+            try {
+                const response = await fetch(`https://66d39f5c184dce1713d09736.mockapi.io/Api/v1/clientes/${currentClientData.id}`);
+                const clientData = await response.json();
+                if (!clientData.pedidos) {
+                    clientData.pedidos = [];
+                }
+                const novoPedido = {
+                    id: Date.now().toString(),
+                    conteudo: conteudo,
+                    data: new Date().toISOString().split('T')[0],
+                    tmdb_id: tmdbId,
+                    media_type: mediaType
+                };
+                clientData.pedidos.unshift(novoPedido);
+                const updateResponse = await fetch(`https://66d39f5c184dce1713d09736.mockapi.io/Api/v1/clientes/${currentClientData.id}`, {
+                    method: 'PUT',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(clientData)
+                });
+                if (!updateResponse.ok) {
+                    throw new Error('Falha ao salvar o pedido.');
+                }
+                conteudoInput.value = '';
+                conteudoInput.dataset.tmdbId = '';
+                conteudoInput.dataset.mediaType = '';
+                document.getElementById('termoBusca').value = '';
+                document.getElementById('resultadosBusca').classList.add('hidden');
+                resetarBotaoAcao();
+                errorMessage.classList.add('hidden');
+                await carregarHistorico();
+            } catch (error) {
+                errorMessage.textContent = 'Erro ao enviar pedido: ' + error.message;
+                errorMessage.classList.remove('hidden');
+                console.error('Erro:', error);
+            }
+        }
+
+        async function carregarHistorico() {
+            if (!currentClientData.id) return;
+            try {
+                const response = await fetch(`https://66d39f5c184dce1713d09736.mockapi.io/Api/v1/clientes/${currentClientData.id}`);
+                const clientData = await response.json();
+                const pedidos = clientData.pedidos || [];
+                const historicoElement = document.getElementById('historicoPedidos');
+                if (pedidos.length === 0) {
+                    historicoElement.innerHTML = '<p class="text-gray-500 text-sm">Nenhum pedido encontrado.</p>';
+                    return;
+                }
+
+                let html = '';
+                for (const pedido of pedidos) {
+                    let posterUrl = 'https://via.placeholder.com/100x150?text=Sem+Poster';
+                    if (pedido.tmdb_id && pedido.media_type) {
+                        try {
+                            const endpoint = pedido.media_type === 'movie' ? `/movie/${pedido.tmdb_id}` : `/tv/${pedido.tmdb_id}`;
+                            const response = await fetch(`https://api.themoviedb.org/3${endpoint}?api_key=${TMDB_API_KEY}&language=pt-BR`);
+                            if (response.ok) {
+                                const data = await response.json();
+                                if (data.poster_path) {
+                                    posterUrl = `https://image.tmdb.org/t/p/w200${data.poster_path}`;
+                                }
+                            }
+                        } catch (error) {
+                            console.error(`Erro ao buscar poster para pedido ${pedido.id}:`, error);
+                        }
+                    }
+                    html += `
+                        <div class="bg-gray-50 p-3 rounded-lg border flex space-x-3">
+                            <img src="${posterUrl}" alt="${pedido.conteudo}" class="w-16 h-24 object-cover rounded">
+                            <div class="flex-1">
+                                <p class="font-medium">${pedido.conteudo}</p>
+                                <p class="text-sm text-gray-500">Data: ${new Date(pedido.data).toLocaleDateString('pt-BR')}</p>
+                                <div class="mt-2">
+                                    <button onclick="excluirPedido('${pedido.id}')" class="text-red-500 text-sm hover:underline">Excluir</button>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                }
+                historicoElement.innerHTML = html;
+            } catch (error) {
+                console.error('Erro ao carregar histórico:', error);
+            }
+        }
+
+        async function excluirPedido(pedidoId) {
+            if (!confirm('Tem certeza que deseja excluir este pedido?')) return;
+            try {
+                const response = await fetch(`https://66d39f5c184dce1713d09736.mockapi.io/Api/v1/clientes/${currentClientData.id}`);
+                const clientData = await response.json();
+                const pedidos = clientData.pedidos || [];
+                const novosPedidos = pedidos.filter(p => p.id !== pedidoId);
+                clientData.pedidos = novosPedidos;
+                const updateResponse = await fetch(`https://66d39f5c184dce1713d09736.mockapi.io/Api/v1/clientes/${currentClientData.id}`, {
+                    method: 'PUT',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(clientData)
+                });
+                if (updateResponse.ok) {
+                    await carregarHistorico();
+                } else {
+                    alert('Erro ao excluir pedido.');
+                }
+            } catch (error) {
+                console.error('Erro ao excluir pedido:', error);
+                alert('Erro ao excluir pedido.');
+            }
+        }
+
         async function gerarCodigoPix() {
             const loadingModal = document.getElementById('loadingModal');
             const successModal = document.getElementById('successModal');
@@ -198,7 +374,6 @@
             const errorMessage = document.getElementById('errorMessage');
             const meses = parseInt(document.getElementById('meses').value);
 
-            // Mostrar loading
             loadingModal.classList.remove('hidden');
             errorMessage.classList.add('hidden');
 
@@ -206,15 +381,12 @@
                 if (!currentClientData.valor || currentClientData.valor === 'N/A') {
                     throw new Error('Valor não disponível para este cliente.');
                 }
-
                 const valorMensal = parseFloat(currentClientData.valor.replace('R$', '').replace(',', '.'));
                 if (isNaN(valorMensal) || valorMensal <= 0) {
                     throw new Error('Valor mensal inválido para o PIX.');
                 }
-
                 const valorTotal = valorMensal * meses;
 
-                // Dados do PIX para Mercado Pago
                 const chavePix = '+5511915370708';
                 const nomeBeneficiario = 'NANA1408';
                 const cidade = 'Olmpia';
@@ -231,7 +403,6 @@
                     `62${('05' + txid.length.toString().padStart(2, '0') + txid).length.toString().padStart(2, '0')}${('05' + txid.length.toString().padStart(2, '0') + txid)}` +
                     `6304`;
 
-                // Calcular CRC16
                 const crc16 = (function(payloadStr) {
                     let crc = 0xFFFF;
                     for (let i = 0; i < payloadStr.length; i++) {
@@ -246,19 +417,14 @@
 
                 const finalPayload = payload + crc16;
 
-                // Garantir mínimo de 1 segundo para o loading
                 await new Promise(resolve => setTimeout(resolve, 1000));
-
-                // Copiar para a área de transferência
                 await navigator.clipboard.writeText(finalPayload);
 
-                // Ocultar loading e mostrar modais de sucesso e imagem
                 loadingModal.classList.add('hidden');
                 successMessage.innerHTML = `PIX gerado com sucesso! <br>Valor: <span class="font-semibold">R$${valorTotal.toFixed(2).replace('.', ',')}</span> para <span class="font-semibold">${meses} mês(es)</span>. <br>O código foi copiado para a área de transferência. <br>Abra o aplicativo do banco na área PIX, cole o código e envie o comprovante via WhatsApp para liberação manual.`;
                 successModal.classList.remove('hidden');
                 imageModal.classList.remove('hidden');
                 console.log('Payload PIX copiado:', finalPayload);
-
             } catch (err) {
                 loadingModal.classList.add('hidden');
                 errorMessage.textContent = err.message || 'Erro ao gerar o código PIX.';
@@ -277,10 +443,8 @@
             const loadingModal = document.getElementById('loadingModal');
             const successModal = document.getElementById('successModal');
             const imageModal = document.getElementById('imageModal');
-            const bankShortcutsModal = document.getElementById('bankShortcutsModal');
 
             const normalizedWhatsApp = whatsappInput.replace(/[\s\-\(\)+]/g, '');
-
             if (!normalizedWhatsApp) {
                 errorMessage.textContent = 'Por favor, insira um número de WhatsApp.';
                 errorMessage.classList.remove('hidden');
@@ -294,7 +458,6 @@
                     throw new Error('Falha ao buscar dados da API.');
                 }
                 const clients = await response.json();
-
                 const client = clients.find(c => {
                     const normalizedClientWhats = c.whats.replace(/[\s\-\(\)+]/g, '');
                     return normalizedClientWhats === normalizedWhatsApp;
@@ -306,7 +469,8 @@
                         cliente: client.cliente,
                         valor: client.valor ? `R$${parseFloat(client.valor).toFixed(2).replace('.', ',')}` : 'N/A',
                         tela: client.tela || 'N/A',
-                        vencimento: client.vencimento ? new Date(client.vencimento).toLocaleDateString('pt-BR') : 'N/A'
+                        vencimento: client.vencimento ? new Date(client.vencimento).toLocaleDateString('pt-BR') : 'N/A',
+                        pedidos: client.pedidos || []
                     };
                     document.getElementById('clientName').textContent = currentClientData.cliente;
                     document.getElementById('clientValor').textContent = currentClientData.valor;
@@ -318,9 +482,20 @@
                     loadingModal.classList.add('hidden');
                     successModal.classList.add('hidden');
                     imageModal.classList.add('hidden');
-                    bankShortcutsModal.classList.add('hidden');
                     pixButton.disabled = false;
-                    atualizarValorTotal(); // Atualizar valor total ao carregar os dados do cliente
+                    atualizarValorTotal();
+                    carregarHistorico();
+                    switchTab('info');
+
+                    // Adicionar ouvinte para o campo conteudo
+                    const conteudoInput = document.getElementById('conteudo');
+                    conteudoInput.addEventListener('input', () => {
+                        if (!conteudoInput.value.trim()) {
+                            resetarBotaoAcao();
+                            conteudoInput.dataset.tmdbId = '';
+                            conteudoInput.dataset.mediaType = '';
+                        }
+                    });
                 } else {
                     errorMessage.textContent = 'Cliente não encontrado.';
                     errorMessage.classList.remove('hidden');
@@ -329,7 +504,6 @@
                     loadingModal.classList.add('hidden');
                     successModal.classList.add('hidden');
                     imageModal.classList.add('hidden');
-                    bankShortcutsModal.classList.add('hidden');
                 }
             } catch (error) {
                 errorMessage.textContent = 'Erro ao buscar dados do cliente: ' + error.message;
@@ -339,7 +513,6 @@
                 loadingModal.classList.add('hidden');
                 successModal.classList.add('hidden');
                 imageModal.classList.add('hidden');
-                bankShortcutsModal.classList.add('hidden');
                 console.error('Erro:', error);
             }
         }
