@@ -5,22 +5,22 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   
   <!-- SEO Otimizado -->
-  <title>MaxTVPlus - Planos de Suporte Técnico com Acesso a Canais de Streaming</title>
-  <meta name="description" content="Planos de suporte técnico especializado com acesso a canais de streaming. Bronze R$30, Prata R$45, Ouro R$70. Suporte via WhatsApp e presencial." />
-  <meta name="keywords" content="suporte técnico streaming, acesso canais tv, plano streaming, suporte whatsapp tv, assistência técnica apps" />
+  <title>MaxTVPlus - Planos de Suporte Técnico com Acesso a Canais e Servidores</title>
+  <meta name="description" content="Planos de suporte técnico com acesso a canais de streaming e múltiplos servidores. Bronze R$30, Prata R$45, Ouro R$60. Organização especial de futebol no plano Ouro." />
+  <meta name="keywords" content="suporte técnico streaming, acesso canais tv, servidores streaming, futebol organizado, plano streaming premium" />
   <link rel="canonical" href="https://maxtvplus.com/" />
 
   <!-- Open Graph / Social -->
   <meta property="og:locale" content="pt_BR" />
   <meta property="og:type" content="website" />
-  <meta property="og:title" content="MaxTVPlus - Planos de Suporte Técnico com Acesso a Canais" />
-  <meta property="og:description" content="Planos de suporte técnico com acesso a canais de streaming. Bronze R$30, Prata R$45, Ouro R$70. Suporte via WhatsApp e presencial." />
+  <meta property="og:title" content="MaxTVPlus - Planos com Servidores e Futebol Organizado" />
+  <meta property="og:description" content="Planos de suporte técnico com acesso a canais e servidores. Bronze 1 servidor, Prata 2 servidores, Ouro 6 servidores com futebol organizado por R$60." />
   <meta property="og:url" content="https://maxtvplus.com/" />
   <meta property="og:site_name" content="MaxTVPlus" />
   <meta property="og:image" content="https://maxtvplus.com/IMG-20241212-WA0008.jpg" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="MaxTVPlus - Planos de Suporte Técnico com Acesso a Canais" />
-  <meta name="twitter:description" content="Planos de suporte técnico com acesso a canais de streaming. Bronze R$30, Prata R$45, Ouro R$70. Suporte via WhatsApp e presencial." />
+  <meta name="twitter:title" content="MaxTVPlus - Planos com Servidores e Futebol Organizado" />
+  <meta name="twitter:description" content="Planos de suporte técnico com acesso a canais e servidores. Bronze 1 servidor, Prata 2 servidores, Ouro 6 servidores com futebol organizado por R$60." />
   <meta name="twitter:image" content="https://maxtvplus.com/IMG-20241212-WA0008.jpg" />
 
   <!-- Favicon -->
@@ -453,6 +453,88 @@
       font-size: 1rem;
     }
     
+    .server-feature {
+      background: rgba(33, 150, 243, 0.2);
+      border: 1px solid #2196F3;
+      border-radius: 8px;
+      padding: 12px;
+      margin: 15px 0;
+      text-align: center;
+    }
+    
+    .server-feature h4 {
+      color: #2196F3;
+      margin-bottom: 5px;
+      font-size: 1rem;
+    }
+    
+    .football-feature {
+      background: rgba(255, 215, 0, 0.2);
+      border: 1px solid var(--gold);
+      border-radius: 8px;
+      padding: 12px;
+      margin: 15px 0;
+      text-align: center;
+    }
+    
+    .football-feature h4 {
+      color: var(--gold);
+      margin-bottom: 5px;
+      font-size: 1rem;
+    }
+    
+    /* Botão "Saiba Mais" - MELHORADO */
+    .info-btn {
+      background: rgba(255, 255, 255, 0.1);
+      border: 2px solid #fff;
+      color: #fff;
+      border-radius: 25px;
+      padding: 8px 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      cursor: pointer;
+      font-weight: 600;
+      margin: 15px auto;
+      transition: all 0.3s ease;
+      font-size: 0.9rem;
+      width: auto;
+    }
+    
+    .info-btn:hover {
+      background: #fff;
+      color: #000;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 8px rgba(255, 255, 255, 0.2);
+    }
+    
+    .info-btn .arrow {
+      transition: transform 0.3s ease;
+      font-size: 0.8rem;
+    }
+    
+    .info-btn.expanded .arrow {
+      transform: rotate(180deg);
+    }
+    
+    /* Detalhes do plano (inicialmente ocultos) */
+    .plan-details {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.5s ease;
+      text-align: left;
+    }
+    
+    .plan-details.expanded {
+      max-height: 1000px;
+    }
+    
+    .plan-summary {
+      text-align: center;
+      margin-bottom: 15px;
+    }
+    
     /* Footer */
     footer {
       background: #000;
@@ -596,8 +678,8 @@
 
   <header>
     <img data-aos="fade-up" data-aos-delay="1400" class="img" src="/IMG-20241212-WA0008.jpg" alt="Especialista em suporte técnico MaxTVPlus - Suporte para apps de streaming" loading="lazy">
-    <h1>Suporte Técnico + Acesso a Canais de Streaming</h1>
-    <p class="hero-subtitle">Planos completos que incluem suporte técnico especializado e liberação de acesso a todos os canais</p>
+    <h1>Suporte Técnico + Acesso a Canais + Múltiplos Servidores</h1>
+    <p class="hero-subtitle">Planos completos com servidores dedicados e organização especial de canais de futebol</p>
   </header>
 
   <main>
@@ -605,7 +687,7 @@
       <!-- Como Funciona - Nova Seção -->
       <section class="section" id="how-it-works" data-aos="fade-up">
         <h2>Como o Meu Serviço Funciona</h2>
-        <p class="section-subtitle">Suporte técnico completo + acesso a canais para você aproveitar seu streaming sem preocupações</p>
+        <p class="section-subtitle">Suporte técnico completo + acesso a canais + servidores dedicados para máxima estabilidade</p>
         <div class="cards">
           <div class="card" data-aos="zoom-in" data-aos-delay="100">
             <div class="expert-badge">1º Passo</div>
@@ -614,13 +696,13 @@
           </div>
           <div class="card" data-aos="zoom-in" data-aos-delay="200">
             <div class="expert-badge">2º Passo</div>
-            <h3>Liberação de Acesso</h3>
-            <p>Ativo seu acesso a todos os canais de streaming incluídos no seu plano</p>
+            <h3>Configuração de Servidores</h3>
+            <p>Configuro os servidores de acordo com seu plano para garantir a melhor estabilidade e qualidade</p>
           </div>
           <div class="card" data-aos="zoom-in" data-aos-delay="300">
             <div class="expert-badge">3º Passo</div>
-            <h3>Suporte Contínuo</h3>
-            <p>Estou disponível conforme seu plano para resolver qualquer problema e manter seu streaming funcionando</p>
+            <h3>Organização e Suporte</h3>
+            <p>Organizo os canais (especialmente futebol) e ofereço suporte contínuo conforme seu plano</p>
           </div>
         </div>
       </section>
@@ -660,10 +742,10 @@
         </div>
       </section>
 
-      <!-- Planos de Suporte Técnico com Acesso -->
+      <!-- Planos de Suporte Técnico com Acesso e Servidores -->
       <section class="section" id="plans" data-aos="fade-up">
-        <h2>Planos Completos: Suporte + Acesso</h2>
-        <p class="section-subtitle">Todos os planos incluem suporte técnico especializado + liberação de acesso a todos os canais</p>
+        <h2>Planos Completos: Suporte + Acesso + Servidores</h2>
+        <p class="section-subtitle">Todos os planos incluem suporte técnico especializado + liberação de acesso a todos os canais + servidores dedicados</p>
         <div class="cards">
           <!-- Plano Bronze -->
           <div class="card" data-aos="flip-left">
@@ -671,32 +753,49 @@
             <h3>Suporte Básico + Acesso</h3>
             <div class="price">R$30,00/mês</div>
             
-            <div class="access-included">
-              <h4>✅ ACESSO INCLUSO A TODOS OS CANAIS</h4>
-              <p>Filmes, Séries, Esportes, Documentários e mais</p>
+            <div class="plan-summary">
+              <p>✅ Acesso a todos os canais</p>
+              <p>🖥️ 1 servidor dedicado</p>
+              <p>🕘 Suporte 9h-16h (dias úteis)</p>
             </div>
             
-            <div class="support-feature bronze-feature">
-              <strong>Horário Comercial</strong>
-              <span>9h às 16h (dias úteis)</span>
+            <button class="info-btn" onclick="togglePlanDetails('bronze', this)">
+              Saiba mais sobre o plano <span class="arrow">▼</span>
+            </button>
+            
+            <div class="plan-details" id="bronze-details">
+              <div class="access-included">
+                <h4>✅ ACESSO INCLUSO A TODOS OS CANAIS</h4>
+                <p>Filmes, Séries, Esportes, Documentários e mais</p>
+              </div>
+              
+              <div class="server-feature">
+                <h4>🖥️ 1 SERVIDOR DEDICADO</h4>
+                <p>Um servidor estável para transmissão básica</p>
+              </div>
+              
+              <div class="support-feature bronze-feature">
+                <strong>Horário Comercial</strong>
+                <span>9h às 16h (dias úteis)</span>
+              </div>
+              
+              <div class="support-feature bronze-feature">
+                <strong>Tempo de Resposta</strong>
+                <span>Até 2 horas (online via WhatsApp)</span>
+              </div>
+              
+              <div class="support-feature bronze-feature">
+                <strong>Tipo de Atendimento</strong>
+                <span>Somente online</span>
+              </div>
+              
+              <div class="support-feature bronze-feature">
+                <strong>Cobertura</strong>
+                <span>Somente dias úteis</span>
+              </div>
             </div>
             
-            <div class="support-feature bronze-feature">
-              <strong>Tempo de Resposta</strong>
-              <span>Até 2 horas (online via WhatsApp)</span>
-            </div>
-            
-            <div class="support-feature bronze-feature">
-              <strong>Tipo de Atendimento</strong>
-              <span>Somente online</span>
-            </div>
-            
-            <div class="support-feature bronze-feature">
-              <strong>Cobertura</strong>
-              <span>Somente dias úteis</span>
-            </div>
-            
-            <a href="https://wa.me/5511915370708?text=Quero%20o%20plano%20Bronze%20de%20suporte%20técnico%20com%20acesso%20aos%20canais" class="btn" target="_blank" rel="noopener" style="background: var(--bronze); margin-top: 20px;">Contratar Plano Bronze</a>
+            <a href="https://wa.me/5511915370708?text=Quero%20o%20plano%20Bronze%20de%20suporte%20técnico%20com%20acesso%20aos%20canais%20e%201%20servidor" class="btn" target="_blank" rel="noopener" style="background: var(--bronze); margin-top: 20px;">Contratar Plano Bronze</a>
           </div>
 
           <!-- Plano Prata -->
@@ -705,73 +804,113 @@
             <h3>Suporte Intermediário + Acesso</h3>
             <div class="price">R$45,00/mês</div>
             
-            <div class="access-included">
-              <h4>✅ ACESSO INCLUSO A TODOS OS CANAIS</h4>
-              <p>Filmes, Séries, Esportes, Documentários e mais</p>
+            <div class="plan-summary">
+              <p>✅ Acesso a todos os canais</p>
+              <p>🖥️ 2 servidores dedicados</p>
+              <p>🕘 Suporte 9h-20h (todos os dias)</p>
             </div>
             
-            <div class="support-feature silver-feature">
-              <strong>Horário Estendido</strong>
-              <span>9h às 20h (todos os dias)</span>
+            <button class="info-btn" onclick="togglePlanDetails('silver', this)">
+              Saiba mais sobre o plano <span class="arrow">▼</span>
+            </button>
+            
+            <div class="plan-details" id="silver-details">
+              <div class="access-included">
+                <h4>✅ ACESSO INCLUSO A TODOS OS CANAIS</h4>
+                <p>Filmes, Séries, Esportes, Documentários e mais</p>
+              </div>
+              
+              <div class="server-feature">
+                <h4>🖥️ 2 SERVIDORES DEDICADOS</h4>
+                <p>Backup automático em caso de instabilidade</p>
+              </div>
+              
+              <div class="support-feature silver-feature">
+                <strong>Horário Estendido</strong>
+                <span>9h às 20h (todos os dias)</span>
+              </div>
+              
+              <div class="support-feature silver-feature">
+                <strong>Tempo de Resposta</strong>
+                <span>Até 1 hora (via WhatsApp)</span>
+              </div>
+              
+              <div class="support-feature silver-feature">
+                <strong>Tipo de Atendimento</strong>
+                <span>Online (WhatsApp)</span>
+              </div>
+              
+              <div class="support-feature silver-feature">
+                <strong>Cobertura</strong>
+                <span>Inclui finais de semana</span>
+              </div>
             </div>
             
-            <div class="support-feature silver-feature">
-              <strong>Tempo de Resposta</strong>
-              <span>Até 1 hora (via WhatsApp)</span>
-            </div>
-            
-            <div class="support-feature silver-feature">
-              <strong>Tipo de Atendimento</strong>
-              <span>Online (WhatsApp)</span>
-            </div>
-            
-            <div class="support-feature silver-feature">
-              <strong>Cobertura</strong>
-              <span>Inclui finais de semana</span>
-            </div>
-            
-            <a href="https://wa.me/5511915370708?text=Quero%20o%20plano%20Prata%20de%20suporte%20técnico%20com%20acesso%20aos%20canais" class="btn" target="_blank" rel="noopener" style="background: var(--silver); color: #000; margin-top: 20px;">Contratar Plano Prata</a>
+            <a href="https://wa.me/5511915370708?text=Quero%20o%20plano%20Prata%20de%20suporte%20técnico%20com%20acesso%20aos%20canais%20e%202%20servidores" class="btn" target="_blank" rel="noopener" style="background: var(--silver); color: #000; margin-top: 20px;">Contratar Plano Prata</a>
           </div>
 
           <!-- Plano Ouro -->
           <div class="card" data-aos="flip-left" data-aos-delay="400">
             <div class="plan-badge gold-badge">Ouro</div>
             <h3>Suporte Premium + Acesso</h3>
-            <div class="price">R$70,00/mês</div>
+            <div class="price">R$60,00/mês</div>
             
-            <div class="access-included">
-              <h4>✅ ACESSO INCLUSO A TODOS OS CANAIS</h4>
-              <p>Filmes, Séries, Esportes, Documentários e mais</p>
+            <div class="plan-summary">
+              <p>✅ Acesso a todos os canais</p>
+              <p>🖥️ 6 servidores dedicados</p>
+              <p>⚽ Futebol organizado em pasta</p>
+              <p>🕗 Suporte 8h-23h30 (todos os dias)</p>
             </div>
             
-            <div class="support-feature gold-feature">
-              <strong>Horário Ampliado</strong>
-              <span>8h às 23h30 (todos os dias)</span>
+            <button class="info-btn" onclick="togglePlanDetails('gold', this)">
+              Saiba mais sobre o plano <span class="arrow">▼</span>
+            </button>
+            
+            <div class="plan-details" id="gold-details">
+              <div class="access-included">
+                <h4>✅ ACESSO INCLUSO A TODOS OS CANAIS</h4>
+                <p>Filmes, Séries, Esportes, Documentários e mais</p>
+              </div>
+              
+              <div class="server-feature">
+                <h4>🖥️ 6 SERVIDORES DEDICADOS</h4>
+                <p>Máxima estabilidade e qualidade de transmissão</p>
+              </div>
+              
+              <div class="football-feature">
+                <h4>⚽ FUTEBOL ORGANIZADO EM UMA PASTA</h4>
+                <p>Todos os jogos do dia organizados - não precisa ficar procurando!</p>
+              </div>
+              
+              <div class="support-feature gold-feature">
+                <strong>Horário Ampliado</strong>
+                <span>8h às 23h30 (todos os dias)</span>
+              </div>
+              
+              <div class="support-feature gold-feature">
+                <strong>Tempo de Resposta</strong>
+                <span>Prioridade imediata</span>
+              </div>
+              
+              <div class="support-feature gold-feature">
+                <strong>Tipo de Atendimento</strong>
+                <span>WhatsApp + Presencial*</span>
+              </div>
+              
+              <div class="support-feature gold-feature">
+                <strong>Cobertura</strong>
+                <span>24/7 (emergências)</span>
+              </div>
+              
+              <div class="support-feature gold-feature">
+                <strong>Atendimento Presencial</strong>
+                <span>Finais de semana e semana*</span>
+              </div>
+              
+              <p style="font-size: 0.8rem; margin-top: 10px;">* Atendimento presencial sujeito a disponibilidade e acordo prévio</p>
             </div>
             
-            <div class="support-feature gold-feature">
-              <strong>Tempo de Resposta</strong>
-              <span>Prioridade imediata</span>
-            </div>
-            
-            <div class="support-feature gold-feature">
-              <strong>Tipo de Atendimento</strong>
-              <span>WhatsApp + Presencial*</span>
-            </div>
-            
-            <div class="support-feature gold-feature">
-              <strong>Cobertura</strong>
-              <span>24/7 (emergências)</span>
-            </div>
-            
-            <div class="support-feature gold-feature">
-              <strong>Atendimento Presencial</strong>
-              <span>Finais de semana e semana*</span>
-            </div>
-            
-            <p style="font-size: 0.8rem; margin-top: 10px;">* Atendimento presencial sujeito a disponibilidade e acordo prévio</p>
-            
-            <a href="https://wa.me/5511915370708?text=Quero%20o%20plano%20Ouro%20de%20suporte%20técnico%20com%20acesso%20aos%20canais" class="btn" target="_blank" rel="noopener" style="background: var(--gold); color: #000; margin-top: 20px;">Contratar Plano Ouro</a>
+            <a href="https://wa.me/5511915370708?text=Quero%20o%20plano%20Ouro%20de%20suporte%20técnico%20com%20acesso%20aos%20canais%2C%206%20servidores%20e%20futebol%20organizado" class="btn" target="_blank" rel="noopener" style="background: var(--gold); color: #000; margin-top: 20px;">Contratar Plano Ouro</a>
           </div>
         </div>
       </section>
@@ -847,7 +986,7 @@
       <section class="support-section" id="support" data-aos="fade-up">
         <div class="support-content">
           <h2>Suporte Técnico Especializado</h2>
-          <p>Como seu técnico especializado, garanto instalação profissional, liberação de acesso a todos os canais e suporte contínuo para seu streaming funcionar perfeitamente!</p>
+          <p>Como seu técnico especializado, garanto instalação profissional, liberação de acesso a todos os canais, configuração de servidores e suporte contínuo para seu streaming funcionar perfeitamente!</p>
           <a href="https://wa.me/5511915370708?text=Preciso%20de%20suporte%20técnico%20especializado%20para%20meu%20streaming" class="btn-support" target="_blank" rel="noopener">Falar com o Especialista</a>
         </div>
       </section>
@@ -862,11 +1001,19 @@
   <!-- AOS JS -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js" defer></script>
   <script>
+    // Inicialização do AOS
     window.addEventListener('load', function () {
       if (window.AOS) AOS.init();
       const loader = document.getElementById('loader');
       if (loader) loader.style.display = 'none';
     });
+
+    // Função para expandir/recolher os detalhes do plano
+    function togglePlanDetails(plan, button) {
+      const details = document.getElementById(`${plan}-details`);
+      details.classList.toggle('expanded');
+      button.classList.toggle('expanded');
+    }
   </script>
 </body>
 </html>
