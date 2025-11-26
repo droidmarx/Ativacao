@@ -1,527 +1,353 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  
+  <!-- SEO Otimizado -->
+  <title>MaxTVPlus - Instalação e Suporte Técnico Especializado para Apps de Streaming</title>
+  <meta name="description" content="Especialista em instalação e suporte técnico 24h para apps de streaming em Smart TV. Garantimos funcionamento perfeito e conformidade com a lei. Suporte profissional via WhatsApp." />
+  <meta name="keywords" content="instalação app streaming, suporte técnico smart tv, aplicativos tv, instalação maxtvplus, suporte 24h streaming" />
+  <link rel="canonical" href="https://maxtvplus.com/" />
+
+  <!-- Open Graph / Social -->
+  <meta property="og:locale" content="pt_BR" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="MaxTVPlus - Suporte Técnico Especializado para Streaming" />
+  <meta property="og:description" content="Instalação profissional e suporte técnico 24h para apps de streaming. Funcionamento garantido e dentro da lei." />
+  <meta property="og:url" content="https://maxtvplus.com/" />
+  <meta property="og:site_name" content="MaxTVPlus" />
+  <meta property="og:image" content="https://maxtvplus.com/IMG-20241212-WA0008.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="MaxTVPlus - Suporte Técnico Especializado para Streaming" />
+  <meta name="twitter:description" content="Instalação profissional e suporte técnico 24h para apps de streaming. Funcionamento garantido e dentro da lei." />
+  <meta name="twitter:image" content="https://maxtvplus.com/IMG-20241212-WA0008.jpg" />
+
+  <!-- Favicon -->
+  <link rel="icon" href="/IMG-20241212-WA0008.jpg" type="image/jpeg" />
+
+  <!-- Preconnect + Font -->
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+  <!-- AOS CSS -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" />
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-   <link rel="icon" href="/IMG-20241212-WA0008.jpg" type="image/png">
 
-
-  <title>𝕄𝕒𝕩𝕋𝕍 ➕ Canais para você 🫵</title>
   <style>
-      * {
-       margin: 0;
-       padding: 0;
-       box-sizing: border-box;
-       font-family: 'Poppins', sans-serif;
-       transition: all 0.3s ease-in-out;
+    :root{
+      --bg:#000;
+      --muted:#ACACAC;
+      --card-bg:rgba(237,226,226,0.18);
+      --accent:#FF1B1B;
+      --accent-cta:#00C853;
+      --radius:10px;
+      --sans: 'Poppins', system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
     }
-  
-  
-    body {
-      margin: 0;
-      line-height: 1.6;
-      background-color: #000000;
-      color: #ACACAC;
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family:var(--sans);
+      background:var(--bg);
+      color:var(--muted);
+      line-height:1.6;
+      -webkit-font-smoothing:antialiased;
     }
-    
-    h1{
-       color: #FFFFFF;
-    }
-
-    header {
+    header{
       background: linear-gradient(to top, #000000, #EE2121);
-      color: #000000;
-      padding: 30px 0;
-      text-align: center;
+      padding:30px 12px;
+      text-align:center;
     }
-    
-    header .img {
-  width: 160px; /* Tamanho da logo */
-  height: 160px; /* Tamanho da logo */
-  border-radius: 30%; /* Torna a imagem circular */
-  margin-bottom: 10px; /* Espaço entre a logo e o texto */
-}
-
-    header p {
-      margin: 5px 0 0;
-      font-size: 1.2rem;
+    header .img{
+      width:160px;
+      height:160px;
+      border-radius:30%;
+      object-fit:cover;
+      margin-bottom:10px;
+      display:inline-block;
     }
-
-    .container {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 20px;
+    h1{color:#fff;font-size:1.8rem;margin:0 0 10px;font-weight:700}
+    .hero-subtitle{color:#fff;font-size:1.2rem;margin-bottom:20px;font-weight:300}
+    .container{max-width:1200px;margin:0 auto;padding:20px}
+    .section{padding:40px 0}
+    .section h2{ text-align:center;margin-bottom:30px;font-size:2.2rem;color:#fff;font-weight:600}
+    .section-subtitle{text-align:center;color:var(--muted);margin-bottom:40px;font-size:1.1rem}
+    .cards{display:flex;flex-wrap:wrap;gap:20px;justify-content:center}
+    .card{
+      background:var(--card-bg);
+      border:solid whitesmoke 2px;
+      border-radius:10px;
+      box-shadow:0 4px 10px rgba(0,0,0,0.1);
+      text-align:center;padding:30px;width:400px;
+      transition:transform 0.3s ease;
     }
-
-    .section {
-      padding: 20px 0;
+    .card:hover{transform:translateY(-5px)}
+    .card img{max-width:100%;border-radius:10px}
+    .card h3{margin:15px 0;font-size:1.5rem;color:#fff}
+    .card p{font-size:1rem;color:#A8A8A8}
+    .btn{
+      display:inline-block;padding:12px 25px;background-color:#00C853;color:#000;text-decoration:none;
+      border-radius:5px;font-size:1rem;transition:background .3s;font-weight:600;border:none;cursor:pointer;
     }
-
-    .section h2 {
-      text-align: center;
-      margin-bottom: 20px;
-      font-size: 1.8rem;
-      color: #A7A7A7;
-    }
-
-    .cards {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 20px;
-      justify-content: center;
-    }
-
-    .card {
-      background: #EDE2E22E;
-      border: solid whitesmoke 2px;
-      border-radius: 10px;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-      text-align: center;
-      padding: 20px;
-      width: 400px;
-    }
-
-    .card img {
-      max-width: 100%;
-      border-radius: 10px;
-    }
-
-    .card h3 {
-      margin: 15px 0;
-      font-size: 1.5rem;
-    }
-
-    .card p {
-      font-size: 1rem;
-      color: #A8A8A8;
-    }
-
-    .btn {
-      display: inline-block;
-      padding: 10px 20px;
-      background-color: #170C00;
-      color: white;
-      text-decoration: none;
-      border-radius: 5px;
-      font-size: 1rem;
-      transition: background 0.3s;
-    }
-
-    .btn:hover {
-      background-color: #00FF50;
-    }
-
-    footer {
-      background: #333;
-      color: white;
-      text-align: center;
-      padding: 10px 0;
-      margin-top: 20px;
-    }
-
-    footer p {
-      margin: 0;
-      font-size: 0.9rem;
-    }
-
-    footer a {
-      color: #929292;
-      text-decoration: none;
-    }
-
-    footer a:hover {#584E4E
-      text-decoration: underline;
-    }
-
-    /* Estilo para o botão de teste */
-    .test-btn {
-      display: inline-block;
-      padding: 10px 20px;
-      background-color: #060500;
-      color: white;
-      text-decoration: none;
-      border-radius: 5px;
-      font-size: 1rem;
-      margin-top: 30px;
-      text-align: center;
-      transition: background 0.3s;
-    }
-
-    .test-btn:hover {
-      background-color: #373B38;
-    }
-
-    /* Estilo para a nova aba de aplicativos */
-    .app-info {
-      background-color: #A8A8A8;
-      padding: 20px;
-      border-radius: 10px;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-      margin-top: 40px;
-      text-align: center;
-    }
-
-    .app-info h3 {
-      font-size: 1.8rem;
-      color: #333333;
-      margin-bottom: 15px;
-    }
-
-    .app-info p {
-      font-size: 1rem;
-      color: #555555;
-      margin-bottom: 10px;
-    }
-
-    .app-info a {
-      font-size: 1rem;
-      color: #FFFFFF;
-      text-decoration: none;
-      transition: color 0.3s;
-    }
-
-    .app-info a:hover {
-      color: #1DB954;
-    }
-    
-    /* Estilos da seção de Suporte 24h */
-.support-section {
-  background: #1A1A1A; /* Fundo escuro */
-  color: white; /* Texto em branco */
-  padding: 50px 20px;
-  text-align: center;
-  border-radius: 10px;
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
-  margin: 40px 0;
-  position: relative;
-}
-
-.support-section .support-content {
-  max-width: 600px;
-  margin: 0 auto;
-}
-
-.support-section h2 {
-  font-size: 2.5rem;
-  margin-bottom: 20px;
-  font-weight: bold;
-  text-transform: uppercase;
-}
-
-.support-section p {
-  font-size: 1.1rem;
-  margin-bottom: 20px;
-  line-height: 1.6;
-}
-
-.btn-support {
-  background: #FF1B1B; /* Cor verde chamativa do botão */
-  color: #1a1a1a;
-  font-size: 1.2rem;
-  padding: 15px 30px;
-  text-decoration: none;
-  border-radius: 50px;
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
-  transition: background 0.3s ease;
-}
-
-.btn-support:hover {
-  background: #00C853;
-}
-
-.app-images {
-  gap: 30px;
-  overflow-x: auto; 
-  padding: 10px; 
-  max-width: 100%;
-  box-sizing: border-box; 
-}
-
-.app-item img {
-  max-width: 100px; /* Garante que as imagens respeitem o tamanho do container */
-  height: auto; /* Mantém a proporção das imagens */
-  border-radius: 10px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-}
-
-
+    .btn:hover{background-color:#00FF50;color:#000}
+    footer{background:#000;color:#9b9b9b;text-align:center;padding:20px 0;margin-top:40px}
+    footer p{margin:0;font-size:0.9rem}
+    .test-btn{display:inline-block;padding:12px 25px;background-color:#00C853;color:#000;text-decoration:none;
+      border-radius:5px;font-size:1rem;margin-top:30px;transition:background .3s;font-weight:600}
+    .test-btn:hover{background-color:#00FF50}
+    .app-info{background-color:#1A1A1A;padding:30px;border-radius:10px;box-shadow:0 4px 10px rgba(0,0,0,0.1);margin-top:40px;text-align:center;color:#fff}
+    .app-info h3{font-size:1.8rem;margin-bottom:15px;color:#fff}
+    .support-section{background:#1A1A1A;color:white;padding:60px 20px;text-align:center;border-radius:10px;box-shadow:0 10px 20px rgba(0,0,0,0.3);margin:40px 0;position:relative}
+    .support-section h2{font-size:2.5rem;margin-bottom:20px;font-weight:bold;text-transform:uppercase}
+    .btn-support{background:#FF1B1B;color:#111;padding:15px 30px;border-radius:50px;text-decoration:none;font-size:1.2rem;box-shadow:0 6px 12px rgba(0,0,0,0.2);transition:background .3s;font-weight:600}
+    .btn-support:hover{background:#00C853}
+    .app-images{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:10px;overflow:hidden;padding:10px}
+    .app-item img{max-width:100px;height:auto;border-radius:10px;box-shadow:0 4px 10px rgba(0,0,0,0.1)}
     /* Loader */
-    #loader {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: #000;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      z-index: 9999;
+    #loader{position:fixed;top:0;left:0;width:100%;height:100%;background:#000;display:flex;justify-content:center;align-items:center;z-index:9999}
+    #loader div{width:100px;height:100px;border:10px solid #fff;border-top:10px solid #F20000;border-radius:50%;animation:spin 1s linear infinite}
+    @keyframes spin{to{transform:rotate(360deg)}}
+    /* video */
+    .video-card{width:100%;height:auto;border-radius:10px;box-shadow:0 4px 10px rgba(0,0,0,0.2);object-fit:cover}
+    .expert-badge{background:#00C853;color:#000;padding:8px 15px;border-radius:20px;font-size:0.8rem;font-weight:600;display:inline-block;margin-bottom:15px}
+    .price{font-size:2rem;color:#00C853;font-weight:700;margin:10px 0}
+    .guarantee-badge{background:#FF1B1B;color:#fff;padding:5px 10px;border-radius:5px;font-size:0.7rem;margin-left:5px}
+    @media (max-width:768px){
+      header{padding:20px}
+      h1{font-size:1.4rem}
+      .hero-subtitle{font-size:1rem}
+      .section h2{font-size:1.8rem}
+      .card{width:100%;padding:20px}
+      .app-images{grid-template-columns:repeat(2,1fr)}
     }
-
-    #loader div {
-      width: 100px;
-      height: 100px;
-      border: 10px solid #fff;
-      border-top: 10px solid #F20000;
-      border-radius: 50%;
-      animation: spin 1s linear infinite;
-    }
-
-    @keyframes spin {
-      to {
-        transform: rotate(360deg);
-      }
-    }
-
-    /* Responsividade */
-    @media (max-width: 768px) {
-      header {
-        padding: 20px;
-      }
-
-      .section h2 {
-        font-size: 1.5rem;
-      }
-    }
-    
-    .video-card {
-  width: 100%; /* O vídeo se ajusta à largura do container */
-  height: auto; /* Mantém a proporção do vídeo */
-  border-radius: 10px; /* Adiciona bordas arredondadas, opcional */
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Adiciona sombra ao vídeo */
-  object-fit: cover; /* Faz o vídeo preencher o espaço sem distorção */
-}
-
-/* Estilo para telas de celular */
-.app-images {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
-  margin-top: 10px;
-}
-
-@media (max-width: 480px) {
-	.app-images {
-		display: grid;
-grid-template-columns: repeat(3, 1fr);
-gap: 20px;
-margin-top: 10px;
-cursor: none;
-		overflow: hidden;
-	}
-}
-
-/* Estilo para telas de PC (largura maior que 768px, por exemplo) */
-@media (min-width: 768px) {
-  .app-images {
-    display: grid;
-grid-template-columns: repeat(3, 1fr);
-gap: 20px;
-margin-top: 10px;
-cursor: none;
-		overflow: hidden;
-  }
-}
-
-
   </style>
+
+  <!-- Structured Data Otimizado -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    "name": "MaxTVPlus",
+    "description": "Serviço especializado em instalação e suporte técnico para aplicativos de streaming em Smart TV",
+    "url": "https://maxtvplus.com/",
+    "logo": "https://maxtvplus.com/IMG-20241212-WA0008.jpg",
+    "areaServed": "BR",
+    "serviceType": "Suporte Técnico e Instalação de Streaming",
+    "provider": {
+      "@type": "Person",
+      "name": "Especialista MaxTVPlus"
+    },
+    "contactPoint": [{
+      "@type": "ContactPoint",
+      "telephone": "+55-11-915370708",
+      "contactType": "customer support",
+      "areaServed": "BR",
+      "availableLanguage": "Português",
+      "serviceHours": "24/7"
+    }],
+    "offers": {
+      "@type": "Offer",
+      "description": "Serviços de instalação e suporte técnico para aplicativos de streaming"
+    }
+  }
+  </script>
+
 </head>
 <body>
   <!-- Loader -->
-  <div id="loader">
+  <div id="loader" aria-hidden="true">
     <div></div>
   </div>
 
   <header>
-  <img data-aos="fade-up" data-aos-delay="1400"  class="img" src="/IMG-20241212-WA0008.jpg" alt="Logo da Empresa">
-  <h1>Assista seus canais favoritos por um preço incrível!</h1>
-</header>
+    <img data-aos="fade-up" data-aos-delay="1400" class="img" src="/IMG-20241212-WA0008.jpg" alt="Especialista em suporte técnico MaxTVPlus - Instalação de apps para Smart TV" loading="lazy">
+    <h1>Suporte Técnico Especializado para Seu Streaming</h1>
+    <p class="hero-subtitle">Instalação profissional, suporte 24h e garantia de funcionamento perfeito</p>
+  </header>
 
   <main>
     <div class="container">
+      <!-- Como Funciona - Nova Seção -->
+      <section class="section" id="how-it-works" data-aos="fade-up">
+        <h2>Como o Meu Serviço Funciona</h2>
+        <p class="section-subtitle">Suporte técnico completo para você aproveitar seu streaming sem preocupações</p>
+        <div class="cards">
+          <div class="card" data-aos="zoom-in" data-aos-delay="100">
+            <div class="expert-badge">1º Passo</div>
+            <h3>Instalação Profissional</h3>
+            <p>Faço a instalação correta do aplicativo na sua Smart TV, garantindo compatibilidade e configuração ideal</p>
+          </div>
+          <div class="card" data-aos="zoom-in" data-aos-delay="200">
+            <div class="expert-badge">2º Passo</div>
+            <h3>Configuração Personalizada</h3>
+            <p>Ajusto as configurações para melhor performance na sua internet e tipo de TV</p>
+          </div>
+          <div class="card" data-aos="zoom-in" data-aos-delay="300">
+            <div class="expert-badge">3º Passo</div>
+            <h3>Suporte Contínuo</h3>
+            <p>Estou disponível 24h para resolver qualquer problema e manter seu streaming funcionando</p>
+          </div>
+        </div>
+      </section>
+
       <!-- Benefícios -->
       <section class="section" id="benefits" data-aos="fade-up">
-        
+        <h2>Vantagens do Meu Suporte Técnico</h2>
         <div class="cards">
           <div class="card" data-aos="zoom-in">
-     <video data-aos="zoom-in" data-aos-delay="400" autoplay muted loop class="video-card">
-      <source src="/VID-20250111-WA0003.mp4" type="video/mp4">
-      Seu navegador não suporta o elemento de vídeo.
-    </video>
-    
-    <br><br>
-    
-     <video data-aos="zoom-in" data-aos-delay="50" autoplay muted loop class="video-card">
-      <source src="/Streaming.mp4" type="video/mp4">
-      Seu navegador não suporta o elemento de vídeo.
-    </video>
-    <div data-aos="zoom-in" data-aos-delay="200" >
-    	    <h3>Qualidade FHD & 4K</h3>
-            <p>Imagem em alta definição para uma experiência incrível.</p>
-    </div>
+            <video data-aos="zoom-in" data-aos-delay="400" autoplay muted loop class="video-card" playsinline>
+              <source src="/VID-20250111-WA0003.mp4" type="video/mp4">
+              Seu navegador não suporta o elemento de vídeo.
+            </video>
 
-            
+            <br><br>
 
+            <video data-aos="zoom-in" data-aos-delay="50" autoplay muted loop class="video-card" playsinline>
+              <source src="/Streaming.mp4" type="video/mp4">
+              Seu navegador não suporta o elemento de vídeo.
+            </video>
+
+            <div data-aos="zoom-in" data-aos-delay="200">
+              <h3>Qualidade Garantida</h3>
+              <p>Garanto imagem FHD & 4K com configuração profissional para melhor experiência</p>
+            </div>
           </div>
-          
-    <div class="card" data-aos="zoom-in" data-aos-delay="100">
-      <h3 data-aos="fade-up" data-aos-delay="100">Futebol do dia</h3>
-      <p data-aos="fade-up" data-aos-delay="200">Fique por dentro de todos os jogos !</p>
-      <br>
-     <img data-aos="fade-up" data-aos-delay="500"  src="/IMG-20241212-WA0002.jpg" alt="Futebol">
-       <p>Saiba em qual canal ira passar o seu timão</p>
-      <a data-aos="fade-down" data-aos-delay="50"  href="https://whatsapp.com/channel/0029VaQ0nSaBKfiAUcZJ7U1F" target="_blank" class="test-btn">Acessar lista de jogos</a>
-    </div>
-  </div>          
-          
-          
-          
+
+          <div class="card" data-aos="zoom-in" data-aos-delay="100">
+            <h3 data-aos="fade-up" data-aos-delay="100">Cobertura Esportiva Completa</h3>
+            <p data-aos="fade-up" data-aos-delay="200">Configuro todos os canais de futebol e esportes para você não perder nada!</p>
+            <br>
+            <img data-aos="fade-up" data-aos-delay="500" src="/IMG-20241212-WA0002.jpg" alt="Canais de futebol configurados por especialista" loading="lazy">
+            <p>Oriento sobre os melhores canais para assistir seu time</p>
+            <a data-aos="fade-down" data-aos-delay="50" href="https://whatsapp.com/channel/0029VaQ0nSaBKfiAUcZJ7U1F" target="_blank" rel="noopener" class="test-btn">Ver Grade de Jogos</a>
+          </div>
         </div>
       </section>
 
-<!-- Nova seção sobre os aplicativos recomendados -->
-<section class="section app-info" data-aos="zoom-in">
-  <h3 data-aos="fade-up" data-aos-delay="500">Conheça os melhores aplicativos para sua Smart TV</h3>
-  <p data-aos="zoom-in" data-aos-delay="100" >Disponíveis para diversas marcas como Samsung, LG, Philips, Sony, Roku, MiBox, FireStick e muitas outras, nossos aplicativos oferecem a melhor experiência de visualização.</p>
-  <p data-aos="flip-down" data-aos-delay="500"><strong>Nota Importante:</strong> Alguns aplicativos requerem licenças para ativação. Para sua conveniência, o valor correspondente será incluído automaticamente na primeira parcela do serviço. Assim, você pode começar a aproveitar tudo o que oferecemos sem complicações!</p>
+      <!-- App info -->
+      <section class="section app-info" data-aos="zoom-in">
+        <h3 data-aos="fade-up" data-aos-delay="500">Aplicativos com Suporte Especializado</h3>
+        <p data-aos="zoom-in" data-aos-delay="100">Ofereço instalação e suporte técnico para as principais marcas: Samsung, LG, Philips, Sony, Roku, MiBox, FireStick e mais.</p>
+        <p data-aos="flip-down" data-aos-delay="500"><strong>Serviço Profissional:</strong> Garanto a instalação correta e funcionamento adequado, seguindo as melhores práticas técnicas.</p>
 
-        <!-- Container para as imagens -->
-        <div class="app-images">
-           
-            <!-- Imagem do Xcloud -->
-          <div data-aos="fade-right" data-aos-delay="200" class="app-item" style="text-align: center;">
-         <img src="https://images.sftcdn.net/images/t_app-icon-m/p/29cbf2a2-eebf-40e4-9ad9-4ba9aa6077bc/567195780/xcloudtv-logo" alt="Xcloud" style="width: 80px; height: auto; border-radius: 10px; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);">
+        <div class="app-images" role="list">
+          <!-- Apps mantidos com alt tags otimizadas -->
+          <div data-aos="fade-right" data-aos-delay="200" class="app-item" style="text-align:center" role="listitem">
+            <img src="https://images.sftcdn.net/images/t_app-icon-m/p/29cbf2a2-eebf-40e4-9ad9-4ba9aa6077bc/567195780/xcloudtv-logo" alt="Suporte técnico XcloudTV - Instalação profissional" loading="lazy" style="width:80px">
             <p>XcloudTV</p>
-          </div>         
+          </div>
 
-          <!-- Imagem do LazerPlay -->
-          <div data-aos="zoom-in" data-aos-delay="200" class="app-item" style="text-align: center;">
-            <img src="https://acdn.mitiendanube.com/stores/003/382/634/products/lazer_play-03348d582520692b9217120683124908-1024-1024.webp" alt="LazerPlay" style="width: 80px; height: auto; border-radius: 10px; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);">
+          <div data-aos="zoom-in" data-aos-delay="200" class="app-item" style="text-align:center" role="listitem">
+            <img src="https://acdn.mitiendanube.com/stores/003/382/634/products/lazer_play-03348d582520692b9217120683124908-1024-1024.webp" alt="Suporte LazerPlay - Configuração especializada" loading="lazy" style="width:80px">
             <p>LazerPlay</p>
           </div>
-          
-          <!-- Imagem do QuickPlayer -->
-          <div data-aos="fade-left" data-aos-delay="200" class="app-item" style="text-align: center;">
-            <img src="/Screenshot_20250117_191550_Google Play Store.png" alt="QuickPlayer" style="width: 80px; height: auto; border-radius: 10px; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);">
+
+          <div data-aos="fade-left" data-aos-delay="200" class="app-item" style="text-align:center" role="listitem">
+            <img src="/Screenshot_20250117_191550_Google Play Store.png" alt="QuickPlayer suporte técnico - Instalação garantida" loading="lazy" style="width:80px">
             <p>QuickPlayer</p>
-          </div>   
-          
-          <!-- Imagem do MetaPlayer -->
-          <div data-aos="fade-up-right" data-aos-delay="200" class="app-item" style="text-align: center;">
-            <img src="/meta-player-2adf758b5a594f3cae17341077932155-1024-1024.png" alt="MetaPlayer" style="width: 80px; height: auto; border-radius: 10px; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);">
+          </div>
+
+          <!-- Outros apps mantidos -->
+          <div data-aos="fade-up-right" data-aos-delay="200" class="app-item" style="text-align:center" role="listitem">
+            <img src="/meta-player-2adf758b5a594f3cae17341077932155-1024-1024.png" alt="MetaPlayer suporte técnico" loading="lazy" style="width:80px">
             <p>MetaPlayer</p>
           </div>
-          
-             <!-- Imagem do VuPlayer -->
-          <div data-aos="zoom-in" data-aos-delay="200" class="app-item" style="text-align: center;">
-            <img src="/Screenshot_20250117_192319_Google Play Store.png" alt="VuPlayer" style="width: 80px; height: auto; border-radius: 10px; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);">
-            <p>VuPlayer</p>
-          </div>  
-          
-               <!-- Imagem do IboPro -->
-          <div data-aos="fade-up-left" data-aos-delay="200" class="app-item" style="text-align: center;">
-            <img src="/1200x600wa.png" alt="IboPro" style="width: 80px; height: auto; border-radius: 10px; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);">
-            <p>IboPro</p>
-          </div>               
 
-               <!-- Imagem do IboPro -->
-          <div data-aos="fade-up-right" data-aos-delay="200" class="app-item" style="text-align: center;">
-            <img src="/BOB_PLAYER_logo.png" alt="BobPlayer" style="width: 80px; height: auto; border-radius: 10px; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);">
+          <div data-aos="zoom-in" data-aos-delay="200" class="app-item" style="text-align:center" role="listitem">
+            <img src="/Screenshot_20250117_192319_Google Play Store.png" alt="VuPlayer instalação profissional" loading="lazy" style="width:80px">
+            <p>VuPlayer</p>
+          </div>
+
+          <div data-aos="fade-up-left" data-aos-delay="200" class="app-item" style="text-align:center" role="listitem">
+            <img src="/1200x600wa.png" alt="IboPro suporte especializado" loading="lazy" style="width:80px">
+            <p>IboPro</p>
+          </div>
+
+          <div data-aos="fade-up-right" data-aos-delay="200" class="app-item" style="text-align:center" role="listitem">
+            <img src="/BOB_PLAYER_logo.png" alt="BobPlayer configuração técnica" loading="lazy" style="width:80px">
             <p>BobPlayer</p>
           </div>
-          
-               <!-- Imagem do IboPro -->
-          <div data-aos="fade-up" data-aos-delay="200" class="app-item" style="text-align: center;">
-            <img src="/baytv.gif" alt="BayTV" style="width: 80px; height: auto; border-radius: 10px; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);">
+
+          <div data-aos="fade-up" data-aos-delay="200" class="app-item" style="text-align:center" role="listitem">
+            <img src="/baytv.gif" alt="BayTV suporte 24h" loading="lazy" style="width:80px">
             <p>BayTV</p>
           </div>
-          
-               <!-- Imagem do IboPro -->
-          <div data-aos="fade-up-left" data-aos-delay="200" class="app-item" style="text-align: center;">
-            <img src="/1200x1200bb.png" alt="Rivolut" style="width: 80px; height: auto; border-radius: 10px; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);">
+
+          <div data-aos="fade-up-left" data-aos-delay="200" class="app-item" style="text-align:center" role="listitem">
+            <img src="/1200x1200bb.png" alt="Rivolut instalação profissional" loading="lazy" style="width:80px">
             <p>Rivolut</p>
-          </div>          
-
+          </div>
         </div>
-        <a data-aos="fade-up" data-aos-delay="300" href="https://wa.me/5511915370708?text=Já%20instalei%20o%20aplicativo%2C%20por%20favor%20gere%20um%20teste%20para%20mim" target="_blank" class="test-btn">Já instalei<br>Gerar teste de 4 Horas</a>
 
+        <a data-aos="fade-up" data-aos-delay="300" href="https://wa.me/5511915370708?text=Quero%20testar%20o%20serviço%20de%20instalação%20e%20suporte%20técnico" target="_blank" rel="noopener" class="test-btn">Teste Grátis - 4 Horas<br>Com Suporte Técnico</a>
       </section>
 
-<!-- Planos -->
-<section class="section" id="plans" data-aos="fade-up">
-  <h2>Planos e Preços</h2>
-  <div class="cards">
-    <div class="card" data-aos="flip-left">
-      <h3>Mensal</h3>
-      <p>R$30,00</p>
-      <p>1 Tela<br>4K/FHD/HD/SD<br>Fimes/Séries/Ao vivo<br>Adultos(Opcional)</p><br>
-      
-      <a href="https://wa.me/5511915370708?text=Gostaria%20de%20saber%20mais%20sobre%20o%20plano%20Mensal, por R$30,00." class="btn">Escolher</a>
+      <!-- Planos -->
+      <section class="section" id="plans" data-aos="fade-up">
+        <h2>Planos com Suporte Técnico Incluso</h2>
+        <p class="section-subtitle">Todos os planos incluem instalação profissional e suporte técnico 24h</p>
+        <div class="cards">
+          <div class="card" data-aos="flip-left">
+            <h3>Plano Mensal</h3>
+            <div class="price">R$30,00</div>
+            <p>✓ 1 Tela<br>✓ Qualidade 4K/FHD/HD<br>✓ Conteúdo Completo<br>✓ Suporte Técnico 24h<br>✓ Instalação Inclusa</p>
+            <a href="https://wa.me/5511915370708?text=Quero%20o%20plano%20Mensal%20com%20suporte%20técnico" class="btn" target="_blank" rel="noopener">Contratar com Suporte</a>
+          </div>
+
+          <div class="card" data-aos="flip-left" data-aos-delay="200">
+            <h3>Plano Trimestral</h3>
+            <div class="price">R$80,00</div>
+            <p>✓ 1 Tela<br>✓ Qualidade 4K/FHD/HD<br>✓ Conteúdo Completo<br>✓ Suporte Técnico 24h<br>✓ Instalação Inclusa</p>
+            <a href="https://wa.me/5511915370708?text=Quero%20o%20plano%20Trimestral%20com%20suporte%20técnico" class="btn" target="_blank" rel="noopener">Contratar com Suporte</a>
+          </div>
+
+          <div class="card" data-aos="flip-left" data-aos-delay="400">
+            <h3>Plano Semestral</h3>
+            <div class="price">R$170,00</div>
+            <p>✓ 1 Tela<br>✓ Qualidade 4K/FHD/HD<br>✓ Conteúdo Completo<br>✓ Suporte Técnico 24h<br>✓ Instalação Inclusa</p>
+            <a href="https://wa.me/5511915370708?text=Quero%20o%20plano%20Semestral%20com%20suporte%20técnico" class="btn" target="_blank" rel="noopener">Contratar com Suporte</a>
+          </div>
+
+          <div class="card" data-aos="flip-left" data-aos-delay="400">
+            <h3>Plano Anual <span class="guarantee-badge">RECOMENDADO</span></h3>
+            <div class="price">R$320,00</div>
+            <p>✓ 2 Telas Simultâneas<br>✓ Qualidade 4K/FHD/HD<br>✓ Conteúdo Completo<br>✓ Suporte Técnico 24h<br>✓ Instalação Inclusa</p>
+            <a href="https://wa.me/5511915370708?text=Quero%20o%20plano%20Anual%20com%20suporte%20técnico" class="btn" target="_blank" rel="noopener">Contratar com Suporte</a>
+          </div>
+
+          <div class="card" data-aos="flip-left" data-aos-delay="400">
+            <h3>Tela Adicional</h3>
+            <div class="price">R$20,00</div>
+            <p>✓ +1 Tela Simultânea<br>✓ Mesma Qualidade<br>✓ Mesmo Conteúdo<br>✓ Configuração Inclusa</p>
+            <a href="https://wa.me/5511915370708?text=Quero%20adicionar%20uma%20tela%20com%20configuração" class="btn" target="_blank" rel="noopener">Adicionar Tela</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- Suporte 24h -->
+      <section class="support-section" id="support" data-aos="fade-up">
+        <div class="support-content">
+          <h2>Suporte Técnico 24h Especializado</h2>
+          <p>Como seu técnico especializado, garanto instalação profissional e suporte contínuo para seu streaming funcionar perfeitamente a qualquer hora!</p>
+          <a href="https://wa.me/5511915370708?text=Preciso%20de%20suporte%20técnico%20especializado%20para%20meu%20streaming" class="btn-support" target="_blank" rel="noopener">Falar com o Especialista</a>
+        </div>
+      </section>
+
     </div>
-    <div class="card" data-aos="flip-left" data-aos-delay="200">
-      <h3>Trimestral</h3>
-      <p>R$80,00</p>
-      <p>1 Tela<br>4K/FHD/HD/SD<br>Fimes/Séries/Ao vivo<br>Adultos(Opcional)</p><br>
-
-      <a href="https://wa.me/5511915370708?text=Gostaria%20de%20saber%20mais%20sobre%20o%20plano%20Trimestral, por R$80,00." class="btn">Escolher</a>
-    </div>
-    <div class="card" data-aos="flip-left" data-aos-delay="400">
-      <h3>Semestral</h3>
-      <p>R$170,00</p>
-      <p>1 Tela<br>4K/FHD/HD/SD<br>Fimes/Séries/Ao vivo<br>Adultos(Opcional)</p><br>
-
-      
-      <a href="https://wa.me/5511915370708?text=Gostaria%20de%20saber%20mais%20sobre%20o%20plano%20Semestral, por R$170,00." class="btn">Escolher</a>
-    </div>
-    <div class="card" data-aos="flip-left" data-aos-delay="400">
-      <h3>Anual</h3>
-      <p>R$320,00</p>
-      <p>2 Tela<br>4K/FHD/HD/SD<br>Fimes/Séries/Ao vivo<br>Adultos(Opcional)</p><br>
-
-      
-      <a href="https://wa.me/5511915370708?text=Gostaria%20de%20saber%20mais%20sobre%20o%20plano%20Anual, por R$320,00." class="btn">Escolher</a>
-    </div>
-    
-    <div class="card" data-aos="flip-left" data-aos-delay="400">
-      <h3>Adicinar tela simultânea</h3>
-      <p>R$20,00</p>
-      <p>+ 1 Tela<br>4K/FHD/HD/SD<br>Fimes/Séries/Ao vivo<br>Adultos(Opcional)</p><br>
-
-      
-      <a href="https://wa.me/5511915370708?text=Gostaria%20de%20saber%20mais%20sobre%20o%20adivionar%20tela, por R$20,00." class="btn">Escolher</a>
-    </div>    
-
-    <!-- Card para os botões adicionais -->
-    <div style="display: none;" class="card" data-aos="flip-up" data-aos-delay="600">
-      <h3>Painel do Cliente</h3>
-      <a href="https://clienteiptv.com/" target="_blank" class="test-btn">Acessar</a>
-    </div>
-  </div>
-</section>
-
-<!-- Suporte 24h -->
-<section class="support-section" id="support" data-aos="fade-up">
-  <div class="support-content">
-    <h2>Suporte 24h via WhatsApp</h2>
-    <p>Estamos disponíveis a qualquer hora do dia ou da noite! Se você precisar de ajuda, é só chamar no WhatsApp. Nosso time está pronto para te atender 24/7.</p>
-    <a href="https://wa.me/5511915370708?text=Gostaria%20de%20falar%20com%20o%20suporte%2024h." class="btn-support">Falar com o Suporte</a>
-  </div>
-</section>
+  </main>
 
   <footer>
-    <p>© 2025 Venda de Canais de TV.</p>
+    <p>© 2025 MaxTVPlus — Serviços especializados em instalação e suporte técnico para streaming. <small style="display:block;color:#777;margin-top:10px">Suporte técnico profissional para aplicativos de streaming</small></p>
   </footer>
 
+  <!-- AOS JS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js" defer></script>
   <script>
-    AOS.init();
-    
-        window.onload = function () {
-      document.getElementById('loader').style.display = 'none';
-    };
+    window.addEventListener('load', function () {
+      if (window.AOS) AOS.init();
+      const loader = document.getElementById('loader');
+      if (loader) loader.style.display = 'none';
+    });
   </script>
 </body>
 </html>
