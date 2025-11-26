@@ -534,6 +534,29 @@
       text-align: center;
       margin-bottom: 15px;
     }
+
+    /* Nova seção persuasiva do Plano Ouro */
+    .gold-pitch {
+      background: rgba(255, 215, 0, 0.1);
+      border: 1px solid var(--gold);
+      border-radius: 8px;
+      padding: 15px;
+      margin: 15px 0;
+      text-align: center;
+    }
+    
+    .gold-pitch h4 {
+      color: var(--gold);
+      margin-bottom: 10px;
+      font-size: 1.1rem;
+    }
+    
+    .gold-pitch p {
+      color: #fff;
+      font-size: 0.9rem;
+      line-height: 1.5;
+      margin-bottom: 8px;
+    }
     
     /* Footer */
     footer {
@@ -677,9 +700,9 @@
   </div>
 
   <header>
-    <img data-aos="fade-up" data-aos-delay="1400" class="img" src="/IMG-20241212-WA0008.jpg" alt="Especialista em suporte técnico MaxTVPlus - Suporte para apps de streaming" loading="lazy">
-    <h1>Suporte Técnico + Acesso a Canais + Múltiplos Servidores</h1>
-    <p class="hero-subtitle">Planos completos com servidores dedicados e organização especial de canais de futebol</p>
+    <img data-aos="fade-up" data-aos-delay="1400" class="img" src="/IMG-20241212-WA0008.jpg" alt="Especialista em suporte técnico MaxTVPlus - Instalação de apps para Smart TV" loading="lazy">
+    <h1>Suporte Técnico Especializado para Seu Streaming</h1>
+    <p class="hero-subtitle">Instalação profissional, suporte 24h e garantia de funcionamento perfeito</p>
   </header>
 
   <main>
@@ -687,7 +710,7 @@
       <!-- Como Funciona - Nova Seção -->
       <section class="section" id="how-it-works" data-aos="fade-up">
         <h2>Como o Meu Serviço Funciona</h2>
-        <p class="section-subtitle">Suporte técnico completo + acesso a canais + servidores dedicados para máxima estabilidade</p>
+        <p class="section-subtitle">Suporte técnico completo para você aproveitar seu streaming sem preocupações</p>
         <div class="cards">
           <div class="card" data-aos="zoom-in" data-aos-delay="100">
             <div class="expert-badge">1º Passo</div>
@@ -696,13 +719,13 @@
           </div>
           <div class="card" data-aos="zoom-in" data-aos-delay="200">
             <div class="expert-badge">2º Passo</div>
-            <h3>Configuração de Servidores</h3>
-            <p>Configuro os servidores de acordo com seu plano para garantir a melhor estabilidade e qualidade</p>
+            <h3>Configuração Personalizada</h3>
+            <p>Reconheço e ajusto as configurações para melhor performance da sua TV, com o aplicativo ideal para ela</p>
           </div>
           <div class="card" data-aos="zoom-in" data-aos-delay="300">
             <div class="expert-badge">3º Passo</div>
-            <h3>Organização e Suporte</h3>
-            <p>Organizo os canais (especialmente futebol) e ofereço suporte contínuo conforme seu plano</p>
+            <h3>Suporte dedicado</h3>
+            <p>Estou disponível para resolver qualquer problema e manter seu streaming funcionando, dependendo do plano contratado</p>
           </div>
         </div>
       </section>
@@ -750,14 +773,9 @@
           <!-- Plano Bronze -->
           <div class="card" data-aos="flip-left">
             <div class="plan-badge bronze-badge">Bronze</div>
-            <h3>Suporte Básico + Acesso</h3>
+            <h3>Suporte Básico</h3>
             <div class="price">R$30,00/mês</div>
             
-            <div class="plan-summary">
-              <p>✅ Acesso a todos os canais</p>
-              <p>🖥️ 1 servidor dedicado</p>
-              <p>🕘 Suporte 9h-16h (dias úteis)</p>
-            </div>
             
             <button class="info-btn" onclick="togglePlanDetails('bronze', this)">
               Saiba mais sobre o plano <span class="arrow">▼</span>
@@ -801,14 +819,10 @@
           <!-- Plano Prata -->
           <div class="card" data-aos="flip-left" data-aos-delay="200">
             <div class="plan-badge silver-badge">Prata</div>
-            <h3>Suporte Intermediário + Acesso</h3>
+            <h3>Suporte Intermediário</h3>
             <div class="price">R$45,00/mês</div>
             
-            <div class="plan-summary">
-              <p>✅ Acesso a todos os canais</p>
-              <p>🖥️ 2 servidores dedicados</p>
-              <p>🕘 Suporte 9h-20h (todos os dias)</p>
-            </div>
+
             
             <button class="info-btn" onclick="togglePlanDetails('silver', this)">
               Saiba mais sobre o plano <span class="arrow">▼</span>
@@ -849,24 +863,21 @@
             <a href="https://wa.me/5511915370708?text=Quero%20o%20plano%20Prata%20de%20suporte%20técnico%20com%20acesso%20aos%20canais%20e%202%20servidores" class="btn" target="_blank" rel="noopener" style="background: var(--silver); color: #000; margin-top: 20px;">Contratar Plano Prata</a>
           </div>
 
-          <!-- Plano Ouro -->
+          <!-- Plano Ouro - ATUALIZADO -->
           <div class="card" data-aos="flip-left" data-aos-delay="400">
             <div class="plan-badge gold-badge">Ouro</div>
-            <h3>Suporte Premium + Acesso</h3>
+            <h3>Suporte Premium</h3>
             <div class="price">R$60,00/mês</div>
             
-            <div class="plan-summary">
-              <p>✅ Acesso a todos os canais</p>
-              <p>🖥️ 6 servidores dedicados</p>
-              <p>⚽ Futebol organizado em pasta</p>
-              <p>🕗 Suporte 8h-23h30 (todos os dias)</p>
-            </div>
+
             
             <button class="info-btn" onclick="togglePlanDetails('gold', this)">
               Saiba mais sobre o plano <span class="arrow">▼</span>
             </button>
             
             <div class="plan-details" id="gold-details">
+
+              
               <div class="access-included">
                 <h4>✅ ACESSO INCLUSO A TODOS OS CANAIS</h4>
                 <p>Filmes, Séries, Esportes, Documentários e mais</p>
@@ -914,6 +925,18 @@
           </div>
         </div>
       </section>
+      
+      <div class="gold-pitch">
+  <h4>🎯 Por Que o Plano Ouro é o melhor para mim ?</h4>
+  <p>Como CEO da nossa empresa, eu sei melhor do que ninguém os desafios do mundo do streaming: instabilidades nos servidores ao vivo, travamentos no app ou remoções inesperadas pela TV. Já passei por isso tudo e transformei essas dores em soluções reais para você.</p>
+  <p><strong>Com o Plano Ouro, eu garanto pessoalmente um suporte ultra-rápido e especializado</strong> – da reinstalação do app em minutos até otimizações na sua conexão para fluxos impecáveis. Não é só um serviço; é a minha promessa de que seu entretenimento flui sem pausas.</p>
+  <p>Eu selecionei os canais e conteúdos mais estáveis e premium do mercado, mas o que me orgulha de verdade é o <strong>suporte dedicado e proativo</strong> que eu lidero. Porque, no final das contas, seu sorriso assistindo ao jogo ou à série favorita é o que me motiva todos os dias.</p>
+
+  <div class="cta-section">
+    <h5>🚀 Pronto para uma Experiência Sem Limites?</h5>
+    <p><strong>Assine o Plano Ouro agora mesmo e ganhe +1 servidor ultra estavel grátis + suporte prioritário!</strong> Vamos transformar sua TV em cinema particular – eu cuido do resto.</p>
+  </div>
+</div>
 
       <!-- App info -->
       <section class="section app-info" data-aos="zoom-in">
